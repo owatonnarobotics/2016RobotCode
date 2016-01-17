@@ -3,29 +3,29 @@ package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
 
 /**
  *
  */
-public class Drive extends Command {
+public class SensorHit extends Command {
 
-    public Drive() {
+    public SensorHit() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.setDrive(0, 0);
+    	
+    	this.setTimeout(.5);
+        OI.xboxController.setRumble(.5);
+        System.out.println("Sensor Initialized");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.setDrive(Robot.oi.xboxController.getRawAxis(1), Robot.oi.xboxController.getRawAxis(0));
-    	if (Robot.inputDetector.get()) { //if controller keeps vibrating, then use "!" (not)
-    		new SensorHit();
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,6 +35,7 @@ public class Drive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	OI.xboxController.setRumble(0);
     }
 
     // Called when another command which requires one or more of the same

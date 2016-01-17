@@ -2,8 +2,9 @@ package org.usfirst.frc.team4624.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team4624.robot.commands.ExampleCommand;
-//import org.usfirst.frc.team4624.robot.library.XboxController;
+
+import org.usfirst.frc.team4624.robot.library.XboxController;
+import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,7 +18,9 @@ public class OI {
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
     // number it is.
-    public Joystick stick = new Joystick(0);
+	
+    //public Joystick stick = new Joystick(0);
+    public static XboxController xboxController = new XboxController();
     
     // Button button = new JoystickButton(stick, buttonNumber);
     
