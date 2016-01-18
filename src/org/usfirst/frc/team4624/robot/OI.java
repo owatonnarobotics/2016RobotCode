@@ -22,6 +22,10 @@ public class OI {
     //public Joystick stick = new Joystick(0);
     public static XboxController xboxController = new XboxController();
     
+    public OI() {
+    	
+    }
+    
     // Button button = new JoystickButton(stick, buttonNumber);
     
     // There are a few additional built in buttons you can use. Additionally,
