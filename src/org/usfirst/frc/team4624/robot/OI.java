@@ -3,6 +3,7 @@ package org.usfirst.frc.team4624.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
+import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.library.XboxController;
 import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 
@@ -23,7 +24,7 @@ public class OI {
     public static XboxController xboxController = new XboxController();
     
     public OI() {
-    	
+    	xboxController.a.whenPressed(new SensorHit());
     }
     
     // Button button = new JoystickButton(stick, buttonNumber);

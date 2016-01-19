@@ -12,7 +12,7 @@ public class RobotMap {
     public static final int leftMotor = 0;
     public static final int rightMotor = 1;
     
-    public static final int fillerSwithchName = 0;
+    public static final int fillerSwitchName = 0;
     public static final int fillerSwitchName2 = 1;
     
     // If you are using multiple modules, make sure to define both the port

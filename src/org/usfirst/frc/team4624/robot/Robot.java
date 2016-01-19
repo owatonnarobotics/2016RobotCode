@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 import org.usfirst.frc.team4624.robot.templates.ExampleSubsystem;
@@ -26,9 +27,10 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static final DriveTrain driveTrain = new DriveTrain();
-	public static DigitalInput inputDetector = new DigitalInput(RobotMap.fillerSwithchName);
+	public static DigitalInput inputDetector = new DigitalInput(RobotMap.fillerSwitchName2);
 
     Command autonomousCommand;
+    Command sensorHit;
     SendableChooser chooser;
 
     /**
@@ -37,6 +39,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		sensorHit = new SensorHit();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());

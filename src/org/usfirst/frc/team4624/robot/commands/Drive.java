@@ -24,7 +24,8 @@ public class Drive extends Command {
     protected void execute() {
     	Robot.driveTrain.setDrive(Robot.oi.xboxController.getRawAxis(1), Robot.oi.xboxController.getRawAxis(0));
     	if (Robot.inputDetector.get()) { //if controller keeps vibrating, then use "!" (not)
-    		new SensorHit();
+    		System.out.printf("Vibrate");
+    		new SensorHit().start();
     	}
     }
 
