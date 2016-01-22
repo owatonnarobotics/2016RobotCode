@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4624.robot.commands.SensorHit;
+import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
 import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 import org.usfirst.frc.team4624.robot.templates.ExampleSubsystem;
 
@@ -25,9 +27,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	
 	public static OI oi;
-	public static final DriveTrain driveTrain = new DriveTrain();
-	public static DigitalInput inputDetector = new DigitalInput(RobotMap.fillerSwitchName);
+	
+	public static       DigitalInput  inputDetector = new DigitalInput(RobotMap.fillerSwitchName);
+	public static       DigitalInput  encoderReset  = new DigitalInput(RobotMap.encoderResetSwitch);
+	
+	public static final BallCollecter ballCollecter = new BallCollecter();
+	
+	public static final DriveTrain    driveTrain    = new DriveTrain();
+	
+	public static final ShooterTilter shooterTilter = new ShooterTilter();
 
     Command autonomousCommand;
     Command sensorHit;
