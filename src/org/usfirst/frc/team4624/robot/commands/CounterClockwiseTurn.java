@@ -8,21 +8,17 @@ import org.usfirst.frc.team4624.robot.Robot;
 /**
  *
  */
-public class RoboPause extends Command {
+public class CounterClockwiseTurn extends Command {
 
-    public RoboPause() {
+    public CounterClockwiseTurn() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	try {
-			Robot.driveTrain.wait();
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
+    	this.setTimeout(.5);
+    	Robot.driveTrain.setDrive(0, -1.0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -31,7 +27,7 @@ public class RoboPause extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return this.isTimedOut();
+    	return this.isTimedOut();
     }
 
     // Called once after isFinished returns true

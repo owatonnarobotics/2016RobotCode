@@ -3,6 +3,9 @@ package org.usfirst.frc.team4624.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
+import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
+import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
+import org.usfirst.frc.team4624.robot.commands.ForwardDrive;
 import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
 import org.usfirst.frc.team4624.robot.commands.SensorHit;
@@ -28,8 +31,14 @@ public class OI {
     public OI() {
     	
     	xboxController.a.whenPressed(new SensorHit());
-    	xboxController.b.toggleWhenPressed(new ReverseDrive());
+    	
+    	xboxController.dPad.down.whenPressed(new ReverseDrive());
+    	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());
+    	xboxController.dPad.right.whenPressed(new ClockwiseTurn());
+    	xboxController.dPad.up.whenPressed(new ForwardDrive());
+    	
     	xboxController.start.toggleWhenPressed(new RoboPause());
+    	
     }
     
     // Button button = new JoystickButton(stick, buttonNumber);

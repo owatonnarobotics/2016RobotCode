@@ -23,7 +23,7 @@ public class Drive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.driveTrain.setDrive(Robot.oi.xboxController.getRawAxis(1), Robot.oi.xboxController.getRawAxis(0));
-    	if (Robot.inputDetector.get()) { //if controller keeps vibrating, then use "!" (not)
+    	if (!Robot.inputDetector.get()) { //if controller keeps vibrating, then use "!" (not)
     		System.out.printf("Vibrate");
     		new SensorHit().start();
     	}

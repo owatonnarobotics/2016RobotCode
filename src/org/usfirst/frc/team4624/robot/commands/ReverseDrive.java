@@ -17,8 +17,8 @@ public class ReverseDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(.1);
-    	Robot.driveTrain.setDrive(-1.0,  -1.0);
+    	this.setTimeout(.2);
+    	Robot.driveTrain.setDrive(1.0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -8,21 +8,17 @@ import org.usfirst.frc.team4624.robot.Robot;
 /**
  *
  */
-public class RoboPause extends Command {
+public class ForwardDrive extends Command {
 
-    public RoboPause() {
+    public ForwardDrive() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	try {
-			Robot.driveTrain.wait();
-		} catch (InterruptedException e) {
-			
-			e.printStackTrace();
-		}
+    	this.setTimeout(.2);
+    	Robot.driveTrain.setDrive(-1.0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run

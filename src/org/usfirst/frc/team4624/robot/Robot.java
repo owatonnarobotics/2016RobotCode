@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static final DriveTrain driveTrain = new DriveTrain();
-	public static DigitalInput inputDetector = new DigitalInput(RobotMap.fillerSwitchName2);
+	public static DigitalInput inputDetector = new DigitalInput(RobotMap.fillerSwitchName);
 
     Command autonomousCommand;
     Command sensorHit;
