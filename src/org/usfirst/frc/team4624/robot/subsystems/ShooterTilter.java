@@ -24,8 +24,7 @@ public class ShooterTilter extends Subsystem {
 	
 	public ShooterTilter() {
 		this.lift = new Jaguar(RobotMap.tilterJag);
-        this.encoder = new Encoder(RobotMap.encoderB,
-                RobotMap.encoderB);
+        this.encoder = new Encoder(RobotMap.encoderB, RobotMap.encoderB);
         this.encoderSwitch = new DigitalInput(RobotMap.encoderResetSwitch);
 	}
 
@@ -43,7 +42,7 @@ public class ShooterTilter extends Subsystem {
 
 	private double correctDistance() {
 		// TODO Auto-generated method stub
-		return  encoder.getDistance();
+		return encoder.getDistance();
 	}
 	
 	public void setRaw(double raw) {
@@ -56,6 +55,12 @@ public class ShooterTilter extends Subsystem {
 		if (!encoderSwitch.get()) {
             encoder.reset();
         }
+	}
+
+	public void update() {
+		
+		displayInformation();
+		
 	}
 }
 

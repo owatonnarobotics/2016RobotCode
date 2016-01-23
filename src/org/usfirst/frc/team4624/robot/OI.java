@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
+import org.usfirst.frc.team4624.robot.commands.CollectBall;
 import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.ForwardDrive;
 import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
@@ -31,6 +32,7 @@ public class OI {
     public OI() {
     	
     	xboxController.a.whenPressed(new SensorHit());
+    	xboxController.b.whileHeld(new CollectBall());
     	
     	xboxController.dPad.down.whenPressed(new ReverseDrive());
     	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());

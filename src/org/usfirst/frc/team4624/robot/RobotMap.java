@@ -16,8 +16,8 @@ public class RobotMap {
     
     public static final int encoderA           = 0;
     public static final int encoderB           = 1;
+    public static final int encoderResetSwitch = 2;
     public static final int fillerSwitchName   = 3;
-    public static final int encoderResetSwitch = 4;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
