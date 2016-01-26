@@ -1,9 +1,7 @@
 
 package org.usfirst.frc.team4624.robot.subsystems;
 
-import org.usfirst.frc.team4624.robot.Robot;
 import org.usfirst.frc.team4624.robot.RobotMap;
-import org.usfirst.frc.team4624.robot.commands.CollectBall;
 import org.usfirst.frc.team4624.robot.library.Tools;
 
 import edu.wpi.first.wpilibj.Jaguar;
@@ -24,14 +22,11 @@ public class BallCollecter extends Subsystem {
 
     public void initDefaultCommand() {
     	
-    	setDefaultCommand(new CollectBall());
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     }
     
 public void setRaw(double raw) {
 	    
-        rotate.set(raw);
+        rotate.set(Tools.clamp(raw, -1, 1));
     }
 }
 
