@@ -1,4 +1,4 @@
-
+/*
 package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -6,9 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
+
 public class AdjustShooter extends Command {
 
     public AdjustShooter() {
@@ -44,3 +42,4 @@ public class AdjustShooter extends Command {
     protected void interrupted() {
     }
 }
+*/

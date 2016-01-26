@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
+//import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
 import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 import org.usfirst.frc.team4624.robot.templates.ExampleSubsystem;
 
@@ -33,11 +33,11 @@ public class Robot extends IterativeRobot {
 	public static       DigitalInput  inputDetector = new DigitalInput(RobotMap.fillerSwitchName);
 	public static       DigitalInput  encoderReset  = new DigitalInput(RobotMap.encoderResetSwitch);
 	
-	public static final BallCollecter ballCollecter = new BallCollecter();
-	
 	public static final DriveTrain    driveTrain    = new DriveTrain();
 	
-	public static final ShooterTilter shooterTilter = new ShooterTilter();
+	//public static final ShooterTilter shooterTilter = new ShooterTilter();
+	
+	public static final BallCollecter ballCollecter = new BallCollecter();
 
     Command autonomousCommand;
     Command sensorHit;
@@ -48,6 +48,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	
 		oi = new OI();
 		sensorHit = new SensorHit();
         chooser = new SendableChooser();
@@ -116,7 +117,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        shooterTilter.update();
+//        shooterTilter.update();
     }
     
     /**

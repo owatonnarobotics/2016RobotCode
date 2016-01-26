@@ -1,8 +1,5 @@
 package org.usfirst.frc.team4624.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-
 import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.CollectBall;
 import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
@@ -11,7 +8,6 @@ import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
 import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.library.XboxController;
-import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator

@@ -1,4 +1,4 @@
-
+/*
 package org.usfirst.frc.team4624.robot.subsystems;
 
 import org.usfirst.frc.team4624.robot.RobotMap;
@@ -11,9 +11,7 @@ import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- *
- */
+
 public class ShooterTilter extends Subsystem {
     
 	private Jaguar       lift;
@@ -63,4 +61,4 @@ public class ShooterTilter extends Subsystem {
 		
 	}
 }
-
+*/
