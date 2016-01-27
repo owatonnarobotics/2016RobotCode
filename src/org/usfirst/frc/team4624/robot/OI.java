@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4624.robot;
 
+import org.usfirst.frc.team4624.robot.commands.AdjustShooter;
 import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.CollectBall;
 import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
@@ -29,6 +30,9 @@ public class OI {
     	
     	xboxController.a.whenPressed(new SensorHit());
     	xboxController.b.whileHeld(new CollectBall());
+    	
+    	xboxController.rb.whileHeld(new AdjustShooter(1));
+    	xboxController.lb.whileHeld(new AdjustShooter(-1));
     	
     	xboxController.dPad.down.whenPressed(new ReverseDrive());
     	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());

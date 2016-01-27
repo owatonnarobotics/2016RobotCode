@@ -7,13 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
-import org.usfirst.frc.team4624.robot.templates.ExampleCommand;
-import org.usfirst.frc.team4624.robot.templates.ExampleSubsystem;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,12 +22,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	
 	public static OI oi;
 	
 	public static       DigitalInput  inputDetector = new DigitalInput(RobotMap.fillerSwitchName);
-	public static       DigitalInput  encoderReset  = new DigitalInput(RobotMap.encoderResetSwitch);
 	
 	public static final DriveTrain    driveTrain    = new DriveTrain();
 	
@@ -40,7 +35,7 @@ public class Robot extends IterativeRobot {
 	public static final BallCollecter ballCollecter = new BallCollecter();
 
     Command autonomousCommand;
-    Command sensorHit;
+    //Command sensorHit;
     SendableChooser chooser;
 
     /**
@@ -48,12 +43,11 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	
-		oi = new OI();
-		sensorHit = new SensorHit();
+    	oi = new OI();
+		//sensorHit = new SensorHit();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+        //chooser.addDefault("Default Auto", new ExampleCommand());
+        //chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
 	
@@ -117,7 +111,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        shooterTilter.update();
+        
     }
     
     /**

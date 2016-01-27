@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
@@ -20,9 +21,10 @@ public class RoboPause extends Command {
     	try {
 			Robot.driveTrain.wait();
 		} catch (InterruptedException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
     }
 
     // Called repeatedly when this Command is scheduled to run
