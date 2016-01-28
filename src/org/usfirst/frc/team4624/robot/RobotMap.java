@@ -9,11 +9,15 @@ public class RobotMap {
 	
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
-    public static final int leftMotor = 0;
-    public static final int rightMotor = 1;
+    public static final int leftMotor          = 0;
+    public static final int rightMotor         = 1;
+    public static final int tilterJag          = 2;
+    public static final int ballCollectJag     = 3;
     
-    public static final int fillerSwithchName = 0;
-    public static final int fillerSwitchName2 = 1;
+    public static final int encoderA           = 0;
+    public static final int encoderB           = 1;
+    public static final int encoderResetSwitch = 2;
+    public static final int fillerSwitchName   = 3;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
