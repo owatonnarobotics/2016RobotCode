@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ShooterTilter extends Subsystem {
 	
 	private Jaguar			lift			= new Jaguar(RobotMap.tilterJag);
-	private Encoder			encoder			= new Encoder(RobotMap.encoderA, RobotMap.encoderB);
+	private Encoder			encoder			= new Encoder(RobotMap.encoderB, RobotMap.encoderA);
 	private DigitalInput	encoderSwitch	= new DigitalInput(RobotMap.encoderResetSwitch);
 	
 	// Put methods for controlling this subsystem
@@ -37,13 +37,14 @@ public class ShooterTilter extends Subsystem {
 	}
 	
 	public void resetEncoder() {
-		if (!encoderSwitch.get()) {
-			encoder.reset();
-		}
+		encoder.reset();
 	}
 	
 	public void displayInformation() {
-		SmartDashboard.putNumber("Encoder Position", encoder.getDistance() / 250);
+		SmartDashboard.putNumber("Encoder Position", encoder.getDistance());
+	}
+	public double getRotations() {
+		return encoder.getDistance();
 	}
 	
 }

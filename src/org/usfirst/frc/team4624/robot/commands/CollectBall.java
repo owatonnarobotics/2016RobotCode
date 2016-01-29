@@ -15,8 +15,7 @@ public class CollectBall extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("CollectBall was initialized");
-    	this.setTimeout(.1);
+    	this.setTimeout(1);
     	Robot.ballCollecter.setRaw(0);
     }
     
