@@ -19,10 +19,12 @@ public class RobotMap {
     public static final int encoderResetSwitch = 2;
     public static final int encoderLimitSwitch = 3;
     
-    //public static final int compressorPin      = 4;
+    public static final int escapementSolenoid = 0;
+    public static final int cylinderSolenoid   = 1;
     
-   //public static final int solenoid1          = 5;
-   //public static final int solenoid2          = 6;
+    //public static final int compressorPin      = 1;
+    
+    
     
     
     // If you are using multiple modules, make sure to define both the port

@@ -8,6 +8,7 @@ import org.usfirst.frc.team4624.robot.commands.ForwardDrive;
 import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
 import org.usfirst.frc.team4624.robot.commands.SensorHit;
+import org.usfirst.frc.team4624.robot.commands.ShootProcess;
 import org.usfirst.frc.team4624.robot.library.XboxController;
 
 /**
@@ -28,7 +29,7 @@ public class OI {
     
     public OI() {
     	
-    	xboxController.a.whenPressed(new SensorHit());
+    	xboxController.a.whenPressed(new ShootProcess());
     	xboxController.b.whileHeld(new CollectBall());
     	
     	xboxController.rb.whileHeld(new AdjustShooter(1, 1));

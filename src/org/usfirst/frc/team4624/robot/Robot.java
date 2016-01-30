@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4624.autonomous.Autonomous;
 import org.usfirst.frc.team4624.autonomous.ZeroTilter;
+import org.usfirst.frc.team4624.robot.commands.LatchReady;
+import org.usfirst.frc.team4624.robot.commands.Recharge;
+import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
@@ -37,8 +40,10 @@ public class Robot extends IterativeRobot {
 	//public static final RoboCompressor roboCompressor = new RoboCompressor();
 
     Command autonomousCommand;
+    Command initChargeProcess;
     //Command sensorHit;
     SendableChooser chooser;
+    
 
     /**
      * This function is run when the robot is first started up and should be
@@ -48,6 +53,7 @@ public class Robot extends IterativeRobot {
     	
     	oi = new OI();
     	//roboCompressor.compressorStart();
+    	
 		//sensorHit = new SensorHit();
         chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());
@@ -109,6 +115,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        initChargeProcess = new RechargeProcess();
+        if (initChargeProcess != null) initChargeProcess.start();
+        
     }
 
     /**

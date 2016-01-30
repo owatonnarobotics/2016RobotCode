@@ -16,8 +16,8 @@ public class ShooterTilter extends Subsystem {
 	private Encoder			encoder			= new Encoder(RobotMap.encoderB, RobotMap.encoderA);
 	private DigitalInput	encoderSwitch1	= new DigitalInput(RobotMap.encoderResetSwitch);
 	private DigitalInput	encoderSwitch2	= new DigitalInput(RobotMap.encoderLimitSwitch);
-	//private Solenoid        solenoid1       = new Solenoid(RobotMap.solenoid1);
-	//private Solenoid        solenoid2       = new Solenoid(RobotMap.solenoid2);
+	private Solenoid        escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
+	private Solenoid        cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
 	
 	
 	// Put methods for controlling this subsystem
@@ -58,12 +58,19 @@ public class ShooterTilter extends Subsystem {
 		return encoder.getDistance();
 	}
 	
-	public void charge() {
-		//TODO: put in stuff
+	public void latchReady() {
+		cylSolenoid.set(true);
+		escSolenoid.set(false);
+	}
+	
+	public void reload() {
+		cylSolenoid.set(false);
+		escSolenoid.set(true);
 	}
 	
 	public void shoot() {
-		//TODO: put in stuff
+		cylSolenoid.set(true);
+		escSolenoid.set(true);
 	}
 	
 }
