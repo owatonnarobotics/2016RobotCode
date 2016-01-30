@@ -31,8 +31,8 @@ public class OI {
     	xboxController.a.whenPressed(new SensorHit());
     	xboxController.b.whileHeld(new CollectBall());
     	
-    	xboxController.rb.whileHeld(new AdjustShooter(1));
-    	xboxController.lb.whileHeld(new AdjustShooter(-1));
+    	xboxController.rb.whileHeld(new AdjustShooter(1, 1));
+    	xboxController.lb.whileHeld(new AdjustShooter(-1, 0));
     	
     	xboxController.dPad.down.whenPressed(new ReverseDrive());
     	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());
