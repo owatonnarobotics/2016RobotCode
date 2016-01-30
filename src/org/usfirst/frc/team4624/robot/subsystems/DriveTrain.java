@@ -24,12 +24,6 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public void setDrive(double x, double y) {
-		if (x < .1 && x > -.1){
-			x = 0;
-		}
-		if (y < .1 && y > -.1){
-			y = 0;
-		}
 		driveTrain.arcadeDrive(-x, -y, true);
 	}
 }

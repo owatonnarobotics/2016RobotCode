@@ -21,33 +21,13 @@ public class AdjustShooter extends Command {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		this.setTimeout(300);
-		/*
-		double mySpeed = speed;
-
-		this.setTimeout(.1);
-		System.out.println(Robot.shooterTilter.getEncoderSwitch());
-		if (Robot.shooterTilter.getEncoderSwitch()) {
-			speed = -1;
-			System.out.println("Shooter encoder switch was triggered");
-			Robot.shooterTilter.resetEncoder();
-			OI.xboxController.setRumble(.5);
-			Robot.shooterTilter.setRaw(speed);
-			speed = mySpeed;
-		} else {
-			Robot.shooterTilter.setRaw(speed);
-			System.out.println(speed);
-		}
-		Robot.shooterTilter.displayInformation();
-		*/
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		double mySpeed = speed;
-
-		//System.out.println(Robot.shooterTilter.getEncoderSwitch());
 		
-		if (Robot.shooterTilter.getEncoderSwitch() && button == 1) {
+		if (Robot.shooterTilter.getEncoderSwitch(1) && button == 1) {
 			speed = 0;
 			
 			System.out.println("Shooter encoder is 0");
@@ -57,10 +37,10 @@ public class AdjustShooter extends Command {
 			OI.xboxController.setRumble(.5);
 			speed = mySpeed;
 		}
-		else if (Robot.shooterTilter.getRotations() >= 4600 && button == 0) {
+		else if (Robot.shooterTilter.getEncoderSwitch(2) && button == 0) {
 			speed = 0;
 			
-			System.out.println("Shooter encoder is about 4600");
+			System.out.println("Shooter encoder is max");
 			
 			Robot.shooterTilter.setRaw(speed);
 			OI.xboxController.setRumble(.5);
@@ -68,7 +48,6 @@ public class AdjustShooter extends Command {
 		}
 		else {
 			Robot.shooterTilter.setRaw(speed);
-			//System.out.println(speed);
 		}
 		Robot.shooterTilter.displayInformation();
 
