@@ -14,12 +14,12 @@ public class CamCommand extends Command {
 	double p = .4;
 	double t = .4;
 	private final double sensitivity = 100.0;
-	boolean rtPressed = false;
+	boolean rsPressed = false;
 	
-    public CamCommand(boolean rt) {
+    public CamCommand(boolean rs) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.camPanTilt);
-        rtPressed = rt;
+        rsPressed = rs;
     }
 
     // Called just before this Command runs the first time
@@ -31,7 +31,7 @@ public class CamCommand extends Command {
     protected void execute() {
     	
     	
-    	if (rtPressed) {
+    	if (rsPressed) {
     		p = 0.4;
     		t = 0.4;
     	}else {
