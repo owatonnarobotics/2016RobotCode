@@ -13,6 +13,8 @@ public class RobotMap {
     public static final int rightMotor         = 1;
     public static final int tilterJag          = 2;
     public static final int ballCollectJag     = 3;
+    public static final int panCamServo        = 4;
+    public static final int tiltCamServo       = 5;
     
     public static final int encoderA           = 0;
     public static final int encoderB           = 1;

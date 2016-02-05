@@ -13,6 +13,7 @@ import org.usfirst.frc.team4624.robot.commands.LatchReady;
 import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
+import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -38,6 +39,8 @@ public class Robot extends IterativeRobot {
 	public static final BallCollecter  ballCollecter  = new BallCollecter();
 	
 	//public static final RoboCompressor roboCompressor = new RoboCompressor();
+	
+	public static final CamPanTilt     camPanTilt     = new CamPanTilt();
 
     Command autonomousCommand;
     Command initChargeProcess;
