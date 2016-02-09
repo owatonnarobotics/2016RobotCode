@@ -15,6 +15,7 @@ public class Autonomous extends CommandGroup {
      */
     public Autonomous() {
     	addSequential(new ZeroTilter());
+    	//addSequential(new VisionTesting());
         /*
         addSequential( new DriveToTote() );
         addSequential( new GrabTote() );

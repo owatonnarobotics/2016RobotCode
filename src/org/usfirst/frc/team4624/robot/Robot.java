@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4624.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -14,6 +15,9 @@ import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;
+import org.usfirst.frc.team4624.robot.subsystems.CameraDetection;
+//import org.usfirst.frc.team4624.robot.subsystems.CameraDetection;
+import org.usfirst.frc.team4624.robot.subsystems.DistanceReader;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -32,21 +36,25 @@ public class Robot extends IterativeRobot {
 	
 	public static OI oi;
 	
-	public static final DriveTrain     driveTrain     = new DriveTrain();
+	public static final DriveTrain      driveTrain     = new DriveTrain();
 	
-	public static final ShooterTilter  shooterTilter  = new ShooterTilter();
+	public static final ShooterTilter   shooterTilter  = new ShooterTilter();
 	
-	public static final BallCollecter  ballCollecter  = new BallCollecter();
+	public static final BallCollecter   ballCollecter  = new BallCollecter();
 	
 	//public static final RoboCompressor roboCompressor = new RoboCompressor();
 	
-	public static final CamPanTilt     camPanTilt     = new CamPanTilt();
+	public static final CamPanTilt      camPanTilt     = new CamPanTilt();
+	
+	public static final CameraDetection camera         = new CameraDetection();
+	
+	public static final DistanceReader  distanceReader = new DistanceReader();
 
     Command autonomousCommand;
     Command initChargeProcess;
     //Command sensorHit;
     SendableChooser chooser;
-    
+    CameraServer camServer;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -62,6 +70,14 @@ public class Robot extends IterativeRobot {
         //chooser.addDefault("Default Auto", new ExampleCommand());
         //chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+        //TODO: Move into subsystem later//
+        //camServer = CameraServer.getInstance();
+        //camServer.setQuality(10);
+        //camServer.startAutomaticCapture("cam0");
+        //camServer.
+        //////////////////////////////////
+        
     }
 	
 	/**
