@@ -9,9 +9,12 @@ package org.usfirst.frc.team4624.robot.subsystems;
 
 import java.io.IOException;
 
+import javax.sound.sampled.Port.Info;
+
 import org.usfirst.frc.team4624.robot.commands.VisionProcessing;
 
 import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.ContourInfoReport;
 import com.ni.vision.NIVision.DrawMode;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ShapeMode;
@@ -19,6 +22,7 @@ import com.ni.vision.NIVision.ShapeMode;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+
 
 /**
  *
@@ -32,7 +36,15 @@ public class CameraDetection extends Subsystem {
 	
 	private int session;
 	private Image frame;
+	private Image processedFrame;
+	ContourInfoReport info;
 	private NIVision.Rect rect = new NIVision.Rect(10, 10, 100, 100);
+	//WPIBinaryImage bin;
+	
+	private NIVision.Range redThreshold   = new NIVision.Range(170, 255);
+	private NIVision.Range greenThreshold = new NIVision.Range(205, 255);
+	private NIVision.Range blueThreshold  = new NIVision.Range(190, 255);
+	
 	
 	public CameraDetection() {
 		//table = NetworkTable.getTable("./GRIP/myContoursReport");
@@ -44,14 +56,18 @@ public class CameraDetection extends Subsystem {
 		//}	
 		
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0); // creating image to save camera frame
+		processedFrame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0); // creating image to save processed frame
 		session = NIVision.IMAQdxOpenCamera("cam0",  NIVision.IMAQdxCameraControlMode.CameraControlModeController); // getting reference to camera
 		NIVision.IMAQdxConfigureGrab(session); // getting access to current camera stream
 	}
 
 	public void cameraUpdate() {
 		NIVision.IMAQdxGrab(session, frame, 1); // grab camera frame and save to image
-		NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE, ShapeMode.SHAPE_RECT, 0.0f); // draw rectangle on frame
-		CameraServer.getInstance().setImage(frame); // push image to server
+		//NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE, ShapeMode.SHAPE_RECT, 0.0f); // draw rectangle on frame
+		//NIVision.imaqColorThreshold(processedFrame, frame, 255, NIVision.ColorMode.RGB, redThreshold, greenThreshold, blueThreshold); // filter colors
+		//info = NIVision.imaqContourInfo(processedFrame);
+		CameraServer.getInstance().setImage(frame); // push frame to server
+		//CameraServer.getInstance().setImage(processedFrame); // push processed frame to server
 	}
 	
 	protected void initDefaultCommand() {

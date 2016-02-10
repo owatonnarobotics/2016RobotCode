@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class ShooterTilter extends Subsystem {
+public class Shooter extends Subsystem {
 	
 	private Jaguar			lift			= new Jaguar(RobotMap.tilterJag);
 	private Encoder			encoder			= new Encoder(RobotMap.encoderB, RobotMap.encoderA);

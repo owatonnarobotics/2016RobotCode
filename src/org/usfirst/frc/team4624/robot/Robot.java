@@ -19,7 +19,8 @@ import org.usfirst.frc.team4624.robot.subsystems.CameraDetection;
 //import org.usfirst.frc.team4624.robot.subsystems.CameraDetection;
 import org.usfirst.frc.team4624.robot.subsystems.DistanceReader;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
+import org.usfirst.frc.team4624.robot.subsystems.GrabberArm;
+import org.usfirst.frc.team4624.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -38,7 +39,7 @@ public class Robot extends IterativeRobot {
 	
 	public static final DriveTrain      driveTrain     = new DriveTrain();
 	
-	public static final ShooterTilter   shooterTilter  = new ShooterTilter();
+	public static final Shooter         shooterTilter  = new Shooter();
 	
 	public static final BallCollecter   ballCollecter  = new BallCollecter();
 	
@@ -49,6 +50,8 @@ public class Robot extends IterativeRobot {
 	public static final CameraDetection camera         = new CameraDetection();
 	
 	public static final DistanceReader  distanceReader = new DistanceReader();
+	
+	public static final GrabberArm      graberArm      = new GrabberArm();
 
     Command autonomousCommand;
     Command initChargeProcess;
@@ -71,11 +74,10 @@ public class Robot extends IterativeRobot {
         //chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
         
-        //TODO: Move into subsystem later//
+        //TODO: Move into subsystem later //comment in if you want to use the camera normally
         //camServer = CameraServer.getInstance();
         //camServer.setQuality(10);
         //camServer.startAutomaticCapture("cam0");
-        //camServer.
         //////////////////////////////////
         
     }
