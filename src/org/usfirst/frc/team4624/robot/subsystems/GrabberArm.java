@@ -21,13 +21,15 @@ public class GrabberArm extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void longLaunch() {
-    	longSolenoid.set(true);
-    	shortSolenoid.set(true);
-    }
-    
-    public void commandTwo() {
-    	shortSolenoid.set(true);
+    public void switchArmHeight() {
+    	if (!shortSolenoid.get() && !longSolenoid.get()) {
+    		shortSolenoid.set(true);
+    	} else if (shortSolenoid.get() && !longSolenoid.get()) {
+    		longSolenoid.set(true);
+    	} else if (shortSolenoid.get() && longSolenoid.get()) {
+    		shortSolenoid.set(false);
+    		longSolenoid.set(false);
+    	}
     }
 }
 

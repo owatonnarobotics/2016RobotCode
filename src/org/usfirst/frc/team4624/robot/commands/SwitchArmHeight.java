@@ -8,17 +8,16 @@ import org.usfirst.frc.team4624.robot.Robot;
 /**
  *
  */
-public class LaunchArm extends Command {
+public class SwitchArmHeight extends Command {
 
-    public LaunchArm() {
+    public SwitchArmHeight() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.graberArm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.graberArm.longLaunch();
-    	System.out.println("Long Launched");
+    	Robot.graberArm.switchArmHeight();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,7 +26,7 @@ public class LaunchArm extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

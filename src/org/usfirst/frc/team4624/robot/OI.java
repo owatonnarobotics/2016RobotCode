@@ -6,10 +6,9 @@ import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.CollectBall;
 import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.ForwardDrive;
-import org.usfirst.frc.team4624.robot.commands.LaunchArm;
+import org.usfirst.frc.team4624.robot.commands.SwitchArmHeight;
 import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
-import org.usfirst.frc.team4624.robot.commands.SensorHit;
 import org.usfirst.frc.team4624.robot.commands.ShootProcess;
 import org.usfirst.frc.team4624.robot.library.XboxController;
 
@@ -33,7 +32,7 @@ public class OI {
     	
     	xboxController.a.whenPressed(new ShootProcess());
     	xboxController.b.whileHeld(new CollectBall());
-    	xboxController.x.whenPressed(new LaunchArm());
+    	xboxController.x.whenPressed(new SwitchArmHeight());
     	
     	xboxController.rb.whileHeld(new AdjustShooter(1, 1));
     	xboxController.lb.whileHeld(new AdjustShooter(-1, 0));
