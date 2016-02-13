@@ -53,12 +53,13 @@ public class Shooter extends Subsystem {
 	}
 	
 	public void displayInformation() {
-		SmartDashboard.putNumber("Encoder Position", encoder.getDistance());
+		//SmartDashboard.putNumber("Encoder Position", encoder.getDistance());
 		SmartDashboard.putNumber("Shooter Angle", potSensor.get());
 	}
 	
-	public double getRotations() {
-		return encoder.getDistance();
+	public double getAngle() {
+		//return encoder.getDistance();
+		return potSensor.get();
 	}
 	
 	public void latchReady() {

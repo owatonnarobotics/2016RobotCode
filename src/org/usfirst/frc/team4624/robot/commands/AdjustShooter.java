@@ -27,31 +27,29 @@ public class AdjustShooter extends Command {
 	protected void execute() {
 		double mySpeed = speed;
 		
-//		if (Robot.shooterTilter.getEncoderSwitch(1) && button == 1) {
-//			speed = 0;
-//			
-//			System.out.println("Shooter encoder is 0");
-//			
-//			Robot.shooterTilter.setRaw(speed);
-//			Robot.shooterTilter.resetEncoder();
-//			OI.xboxController.setRumble(.5);
-//			speed = mySpeed;
-//		}
-//		else if (Robot.shooterTilter.getEncoderSwitch(2) && button == 0) {
-//			speed = 0;
-//			
-//			System.out.println("Shooter encoder is max");
-//			
-//			Robot.shooterTilter.setRaw(speed);
-//			OI.xboxController.setRumble(.5);
-//			speed = mySpeed;
-//		}
-//		else {
-//			Robot.shooterTilter.setRaw(speed);
-//		}
-		Robot.shooter.setRaw(speed);
+		if (Robot.shooter.getAngle() >= .75 && button == 1) {
+			speed = 0;
+			
+			System.out.println("Shooter can't go lower!");
+			
+			Robot.shooter.setRaw(speed);
+			OI.xboxController.setRumble(.5);
+			speed = mySpeed;
+		}
+		else if (Robot.shooter.getAngle() <= .4 && button == 0) {
+			speed = 0;
+			
+			System.out.println("Shooter can't go higher");
+			
+			Robot.shooter.setRaw(speed);
+			OI.xboxController.setRumble(.5);
+			speed = mySpeed;
+		}
+		else {
+			Robot.shooter.setRaw(speed);
+		}
+		
 		Robot.shooter.displayInformation();
-
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

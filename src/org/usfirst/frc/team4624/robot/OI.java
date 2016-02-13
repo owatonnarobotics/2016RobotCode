@@ -34,7 +34,7 @@ public class OI {
     	xboxController.b.whileHeld(new CollectBall());
     	xboxController.x.whenPressed(new SwitchArmHeight());
     	
-    	xboxController.rb.whileHeld(new AdjustShooter(1, 1));
+    	xboxController.rb.whileHeld(new AdjustShooter(1, 1));  //down
     	xboxController.lb.whileHeld(new AdjustShooter(-1, 0)); //up
     	
     	xboxController.rsButton.whileHeld(new CamCommand(true));
