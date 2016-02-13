@@ -35,10 +35,11 @@ public class OI {
     	xboxController.x.whenPressed(new SwitchArmHeight());
     	
     	xboxController.rb.whileHeld(new AdjustShooter(1, 1));
-    	xboxController.lb.whileHeld(new AdjustShooter(-1, 0));
+    	xboxController.lb.whileHeld(new AdjustShooter(-1, 0)); //up
     	
     	xboxController.rsButton.whileHeld(new CamCommand(true));
     	//xboxController.rtButton.whenReleased(new CamCommand(false));
+    	
     	
     	xboxController.dPad.down.whenPressed(new ReverseDrive());
     	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());

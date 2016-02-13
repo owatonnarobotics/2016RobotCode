@@ -1,4 +1,5 @@
 
+
 package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,13 +13,13 @@ public class LatchReady extends Command {
 
     public LatchReady() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooterTilter);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(1);
-    	Robot.shooterTilter.latchReady();
+    	Robot.shooter.latchReady();
     	System.out.println("Latch is ready");
     }
 

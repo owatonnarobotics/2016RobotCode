@@ -12,13 +12,13 @@ public class Shoot extends Command {
 
     public Shoot() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooterTilter);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(1);
-    	Robot.shooterTilter.shoot();
+    	Robot.shooter.shoot();
     	System.out.println("Shooting");
     }
 

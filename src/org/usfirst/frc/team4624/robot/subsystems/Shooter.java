@@ -2,6 +2,8 @@
 package org.usfirst.frc.team4624.robot.subsystems;
 
 import org.usfirst.frc.team4624.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Jaguar;
@@ -12,13 +14,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
 	
-	private Jaguar			lift			= new Jaguar(RobotMap.tilterJag);
-	private Encoder			encoder			= new Encoder(RobotMap.encoderB, RobotMap.encoderA);
-	private DigitalInput	encoderSwitch1	= new DigitalInput(RobotMap.encoderResetSwitch);
-	private DigitalInput	encoderSwitch2	= new DigitalInput(RobotMap.encoderLimitSwitch);
-	private Solenoid        escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
-	private Solenoid        cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
-	
+	private Jaguar			    lift			= new Jaguar(RobotMap.tilterJag);
+	private Encoder		    	encoder			= new Encoder(RobotMap.encoderB, RobotMap.encoderA);
+	private DigitalInput	    encoderSwitch1	= new DigitalInput(RobotMap.encoderResetSwitch);
+	private DigitalInput	    encoderSwitch2	= new DigitalInput(RobotMap.encoderLimitSwitch);
+	private Solenoid            escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
+	private Solenoid            cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
+	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer);
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -52,6 +54,7 @@ public class Shooter extends Subsystem {
 	
 	public void displayInformation() {
 		SmartDashboard.putNumber("Encoder Position", encoder.getDistance());
+		SmartDashboard.putNumber("Shooter Angle", potSensor.get());
 	}
 	
 	public double getRotations() {

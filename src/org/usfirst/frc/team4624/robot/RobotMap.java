@@ -14,7 +14,7 @@ public class RobotMap {
 	public static final int leftMotor            = 0; //DriveTrain:    PWM: Motor Controller for the left side (drive) of the Robot
     public static final int rightMotor           = 1; //DriveTrain:    PWM: Motor Controller for the right side (drive) of the Robot
     public static final int tilterJag            = 2; //ShooterTilter: PWM: Motor Controller for tilting the shooter
-    public static final int ballCollectJag       = 3; //BallCollecter: PWM: Motor Controller for the motor that controls the ball collecter
+    //public static final int ballCollectJag       = 3; //BallCollecter: PWM: Motor Controller for the motor that controls the ball collecter
     public static final int panCamServo          = 4; //CamPanTilt:    PWM: Servo that pans the camera on the robot
     public static final int tiltCamServo         = 5; //CamPanTilt:    PWM: Servo that tilts the camera on the robot
     
@@ -33,7 +33,10 @@ public class RobotMap {
     public static final int grabberSolenoidShort = 3;
     
     //RELAY
-    //public static final int spike                = 1;
+    public static final int spike                = 0;
+    
+    //ANALOG
+    public static final int potentiometer        = 0;
     
     //world variable (2014)
     public static boolean hotGoal = false;

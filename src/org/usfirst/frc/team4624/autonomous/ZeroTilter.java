@@ -17,7 +17,7 @@ public class ZeroTilter extends Command {
      * Example auto period sequence
      */
     public ZeroTilter() {
-    	requires(Robot.shooterTilter);
+    	requires(Robot.shooter);
         /*
         addSequential( new DriveToTote() );
         addSequential( new GrabTote() );
@@ -33,31 +33,31 @@ public class ZeroTilter extends Command {
 
 	@Override
 	protected void initialize() {
-		Robot.shooterTilter.setRaw(1);
+		Robot.shooter.setRaw(1);
 	}
 
 	@Override
 	protected void execute() {
-		Robot.shooterTilter.displayInformation();
+		Robot.shooter.displayInformation();
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return Robot.shooterTilter.getEncoderSwitch(1);
+		return Robot.shooter.getEncoderSwitch(1);
 	}
 
 	@Override
 	protected void end() {
-		Robot.shooterTilter.setRaw(0);
-		Robot.shooterTilter.resetEncoder();
-		Robot.shooterTilter.displayInformation();
+		Robot.shooter.setRaw(0);
+		Robot.shooter.resetEncoder();
+		Robot.shooter.displayInformation();
 		
 	}
 
 	@Override
 	protected void interrupted() {
-		Robot.shooterTilter.setRaw(0);
-		Robot.shooterTilter.resetEncoder();
-		Robot.shooterTilter.displayInformation();
+		Robot.shooter.setRaw(0);
+		Robot.shooter.resetEncoder();
+		Robot.shooter.displayInformation();
 	}
 }

@@ -16,7 +16,7 @@ public class CollectBall extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(1);
-    	Robot.ballCollecter.setRaw(0);
+    	Robot.ballCollecter.turnOff();
     }
     
 
@@ -25,7 +25,7 @@ public class CollectBall extends Command {
 //    	if (Robot.oi.xboxController.b.get()) {
 //    		Robot.ballCollecter.setRaw(1);
 //    	}
-    	Robot.ballCollecter.setRaw(-1);
+    	Robot.ballCollecter.turnOn();
     	System.out.println("BallCollector Executed");
     	
     }
@@ -37,12 +37,12 @@ public class CollectBall extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.ballCollecter.setRaw(0);
+    	Robot.ballCollecter.turnOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.ballCollecter.setRaw(0);
+    	Robot.ballCollecter.turnOff();
     }
 }

@@ -13,7 +13,7 @@ public class AdjustShooter extends Command {
 
 	public AdjustShooter(double speed, int button) {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterTilter);
+		requires(Robot.shooter);
 		this.speed = speed;
 		this.button = button;
 	}
@@ -27,29 +27,30 @@ public class AdjustShooter extends Command {
 	protected void execute() {
 		double mySpeed = speed;
 		
-		if (Robot.shooterTilter.getEncoderSwitch(1) && button == 1) {
-			speed = 0;
-			
-			System.out.println("Shooter encoder is 0");
-			
-			Robot.shooterTilter.setRaw(speed);
-			Robot.shooterTilter.resetEncoder();
-			OI.xboxController.setRumble(.5);
-			speed = mySpeed;
-		}
-		else if (Robot.shooterTilter.getEncoderSwitch(2) && button == 0) {
-			speed = 0;
-			
-			System.out.println("Shooter encoder is max");
-			
-			Robot.shooterTilter.setRaw(speed);
-			OI.xboxController.setRumble(.5);
-			speed = mySpeed;
-		}
-		else {
-			Robot.shooterTilter.setRaw(speed);
-		}
-		Robot.shooterTilter.displayInformation();
+//		if (Robot.shooterTilter.getEncoderSwitch(1) && button == 1) {
+//			speed = 0;
+//			
+//			System.out.println("Shooter encoder is 0");
+//			
+//			Robot.shooterTilter.setRaw(speed);
+//			Robot.shooterTilter.resetEncoder();
+//			OI.xboxController.setRumble(.5);
+//			speed = mySpeed;
+//		}
+//		else if (Robot.shooterTilter.getEncoderSwitch(2) && button == 0) {
+//			speed = 0;
+//			
+//			System.out.println("Shooter encoder is max");
+//			
+//			Robot.shooterTilter.setRaw(speed);
+//			OI.xboxController.setRumble(.5);
+//			speed = mySpeed;
+//		}
+//		else {
+//			Robot.shooterTilter.setRaw(speed);
+//		}
+		Robot.shooter.setRaw(speed);
+		Robot.shooter.displayInformation();
 
 	}
 
@@ -60,14 +61,14 @@ public class AdjustShooter extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.shooterTilter.setRaw(0);
+		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.shooterTilter.setRaw(0);
+		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
 	}
 }

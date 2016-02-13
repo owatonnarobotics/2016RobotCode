@@ -12,13 +12,13 @@ public class Recharge extends Command {
 
     public Recharge() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooterTilter);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(10);
-    	Robot.shooterTilter.reload();
+    	Robot.shooter.reload();
     	System.out.println("Recharging");
     }
 
