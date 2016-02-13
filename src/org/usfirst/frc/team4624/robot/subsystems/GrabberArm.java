@@ -31,5 +31,10 @@ public class GrabberArm extends Subsystem {
     		longSolenoid.set(false);
     	}
     }
+    
+    public void resetArmHeight() {
+    	shortSolenoid.set(false);
+    	longSolenoid.set(false);
+    }
 }
 

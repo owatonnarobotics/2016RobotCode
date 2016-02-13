@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 	
 	public static final DistanceReader  distanceReader = new DistanceReader();
 	
-	public static final GrabberArm      graberArm      = new GrabberArm();
+	public static final GrabberArm      grabberArm      = new GrabberArm();
 
     Command autonomousCommand;
     Command initChargeProcess;
@@ -64,9 +64,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	
     	oi = new OI();
-    	//roboCompressor.compressorStart();
     	
-		//sensorHit = new SensorHit();
+    	grabberArm.resetArmHeight();
+    	
         chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());
         //chooser.addObject("My Auto", new MyAutoCommand());
@@ -105,6 +105,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         //autonomousCommand = (Command) chooser.getSelected();
     	autonomousCommand = new Autonomous();
+        grabberArm.resetArmHeight();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
