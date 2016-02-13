@@ -21,6 +21,9 @@ public class GrabberArm extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    /**
+     * switches between the 3 heights possible for the arm, down, half-mast, and full-mast
+     */
     public void switchArmHeight() {
     	if (!shortSolenoid.get() && !longSolenoid.get()) {
     		shortSolenoid.set(true);
@@ -32,6 +35,11 @@ public class GrabberArm extends Subsystem {
     	}
     }
     
+    /**
+     * resets the arm height
+     * this is needed, because otherwise the robot stays
+     * in the position it left off in
+     */
     public void resetArmHeight() {
     	shortSolenoid.set(false);
     	longSolenoid.set(false);

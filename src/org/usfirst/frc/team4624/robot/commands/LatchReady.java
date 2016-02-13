@@ -6,11 +6,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class LatchReady extends Command {
-
+	
+	/**
+	 * sets the shooter latch to the ready position
+	 */
     public LatchReady() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.shooter);

@@ -22,7 +22,12 @@ public class DriveTrain extends Subsystem {
 		setDefaultCommand(new Drive());
 
 	}
-
+	
+	/**
+	 * sets the driving speed for the drivetrain motor controllers
+	 * @param x forwards/backwards speed value
+	 * @param y rotation speed value
+	 */
 	public void setDrive(double x, double y) {
 		driveTrain.arcadeDrive(-x, -y, true);
 	}

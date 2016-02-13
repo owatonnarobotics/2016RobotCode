@@ -9,7 +9,10 @@ import org.usfirst.frc.team4624.robot.Robot;
  *
  */
 public class DistanceGetter extends Command {
-
+	
+	/**
+	 * gets the distance read by the ultrasonic sensor
+	 */
     public DistanceGetter() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.distanceReader);

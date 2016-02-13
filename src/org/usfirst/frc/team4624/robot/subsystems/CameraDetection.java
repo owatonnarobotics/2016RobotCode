@@ -45,7 +45,6 @@
 //	private NIVision.Range greenThreshold = new NIVision.Range(205, 255);
 //	private NIVision.Range blueThreshold  = new NIVision.Range(190, 255);
 //	
-//	
 //	public CameraDetection() {
 //		//table = NetworkTable.getTable("./GRIP/myContoursReport");
 //		//try {
@@ -66,6 +65,7 @@
 //		//NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE, ShapeMode.SHAPE_RECT, 0.0f); // draw rectangle on frame
 //		//NIVision.imaqColorThreshold(processedFrame, frame, 255, NIVision.ColorMode.RGB, redThreshold, greenThreshold, blueThreshold); // filter colors
 //		//info = NIVision.imaqContourInfo(processedFrame);
+//		
 //		CameraServer.getInstance().setImage(frame); // push frame to server
 //		//CameraServer.getInstance().setImage(processedFrame); // push processed frame to server
 //	}

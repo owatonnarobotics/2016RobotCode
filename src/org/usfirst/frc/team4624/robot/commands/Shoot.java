@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class Shoot extends Command {
-
+	
+	/**
+	 * shoots the cylinder
+	 */
     public Shoot() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.shooter);

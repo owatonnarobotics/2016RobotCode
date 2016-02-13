@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class Recharge extends Command {
-
+	
+	/**
+	 * recharges the shooting cylinder
+	 */
     public Recharge() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.shooter);

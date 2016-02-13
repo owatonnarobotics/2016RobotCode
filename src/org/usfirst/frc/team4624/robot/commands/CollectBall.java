@@ -7,7 +7,10 @@ import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
 
 public class CollectBall extends Command {
-
+	
+	/**
+	 * turns on the ballcollecter
+	 */
     public CollectBall() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.ballCollecter);

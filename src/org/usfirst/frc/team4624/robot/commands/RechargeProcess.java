@@ -11,7 +11,7 @@ public class RechargeProcess extends CommandGroup {
     
     
     /**
-     * Example auto period sequence
+     * the process to just recharge the cylinder
      */
     public RechargeProcess() {
     	addSequential(new Recharge());

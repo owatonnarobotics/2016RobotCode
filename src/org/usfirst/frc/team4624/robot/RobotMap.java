@@ -33,7 +33,7 @@ public class RobotMap {
     public static final int grabberSolenoidShort = 3;
     
     //RELAY
-    public static final int spike                = 0;
+    public static final int flywheel             = 0;
     
     //ANALOG
     public static final int potentiometer        = 0;

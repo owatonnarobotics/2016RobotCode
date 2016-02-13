@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class CounterClockwiseTurn extends Command {
-
+	
+	/**
+	 * turns the robot counterclockwise
+	 */
     public CounterClockwiseTurn() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);

@@ -16,6 +16,10 @@ public class CamCommand extends Command {
 	private final double sensitivity = 100.0;
 	boolean rsPressed = false;
 	
+	/**
+	 * command to move the camera
+	 * @param rs boolean to see if the rightstick is pressed
+	 */
     public CamCommand(boolean rs) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.camPanTilt);

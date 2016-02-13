@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallCollecter extends Subsystem {
     
-	private Relay spike = new Relay(RobotMap.spike);
+	private Relay flywheel = new Relay(RobotMap.flywheel);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
@@ -25,13 +25,19 @@ public class BallCollecter extends Subsystem {
     	
     }
     
+    /**
+     * turns on ball fly on the robot and sets relay value to forward
+     */
     public void turnOn() {
-    	spike.set(Relay.Value.kOn);
-	    spike.set(Relay.Value.kForward);
+    	flywheel.set(Relay.Value.kOn);
+    	flywheel.set(Relay.Value.kForward);
     }
-
+    
+    /**
+     *  turns off ball fly wheels on robot
+     */
     public void turnOff() {
-    	spike.set(Relay.Value.kOff);
+    	flywheel.set(Relay.Value.kOff);
     }
 }
 

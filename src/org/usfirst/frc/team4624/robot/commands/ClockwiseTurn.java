@@ -9,7 +9,10 @@ import org.usfirst.frc.team4624.robot.Robot;
  *
  */
 public class ClockwiseTurn extends Command {
-
+	
+	/**
+	 * turns robot clockwise
+	 */
     public ClockwiseTurn() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);

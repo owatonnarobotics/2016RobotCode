@@ -2,16 +2,12 @@
 package org.usfirst.frc.team4624.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4624.autonomous.Autonomous;
-import org.usfirst.frc.team4624.autonomous.ZeroTilter;
-import org.usfirst.frc.team4624.robot.commands.LatchReady;
-import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;

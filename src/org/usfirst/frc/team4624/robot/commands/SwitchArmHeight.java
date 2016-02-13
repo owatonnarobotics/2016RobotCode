@@ -5,19 +5,19 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class SwitchArmHeight extends Command {
-
+	
+	/**
+	 * switches the arm height
+	 */
     public SwitchArmHeight() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.graberArm);
+        requires(Robot.grabberArm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.graberArm.switchArmHeight();
+    	Robot.grabberArm.switchArmHeight();
     }
 
     // Called repeatedly when this Command is scheduled to run

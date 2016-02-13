@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class ReverseDrive extends Command {
-
+	
+	/**
+	 * makes the robot drive backwards...
+	 */
     public ReverseDrive() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);

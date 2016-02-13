@@ -10,7 +10,12 @@ public class AdjustShooter extends Command {
 
 	double speed = 0;
 	int button = 0;
-
+	
+	/**
+	 * Command to adjust the shooter angle
+	 * @param speed the speed the shooter should move at from -1 to 1
+	 * @param button the button being used to control the angle (leftbutton = 0 and rightbutton = 1
+	 */
 	public AdjustShooter(double speed, int button) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.shooter);
