@@ -17,7 +17,7 @@ public class Shooter extends Subsystem {
 	private Jaguar			    lift			= new Jaguar(RobotMap.tilterJag);
 	private Solenoid            escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
 	private Solenoid            cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
-	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer);
+	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer, -360, 0);
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
