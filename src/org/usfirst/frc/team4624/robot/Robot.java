@@ -82,7 +82,9 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
      */
     public void disabledInit(){
-    	
+    	driveTrain.stop();
+    	grabberArm.resetArmHeight();
+    	ballCollecter.turnOff();
     }
 	
 	public void disabledPeriodic() {

@@ -31,4 +31,8 @@ public class DriveTrain extends Subsystem {
 	public void setDrive(double x, double y) {
 		driveTrain.arcadeDrive(-x, -y, true);
 	}
+	
+	public void stop() {
+		driveTrain.stopMotor();
+	}
 }
