@@ -17,7 +17,7 @@ public class Shooter extends Subsystem {
 	private Jaguar			    lift			= new Jaguar(RobotMap.tilterJag);
 	private Solenoid            escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
 	private Solenoid            cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
-	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer, -360, 0);
+	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer, 90, 26);
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -38,7 +38,7 @@ public class Shooter extends Subsystem {
 	 * displays the shooter angle to the SmartDashboard
 	 */
 	public void displayInformation() {
-		SmartDashboard.putNumber("Shooter Angle", potSensor.get());
+		SmartDashboard.putNumber("Shooter Angle", this.getAngle());
 	}
 	
 	/**
@@ -46,15 +46,15 @@ public class Shooter extends Subsystem {
 	 * @return returns the angle of the shooter mechanism
 	 */
 	public double getAngle() {
-		return potSensor.get();
+		return (90 - potSensor.get());
 	}
 	
 	/**
 	 * sets the shooter solenoids in the ready position for shooting
 	 */
 	public void latchReady() {
-		cylSolenoid.set(true);
 		escSolenoid.set(false);
+		cylSolenoid.set(true);
 	}
 	
 	/**

@@ -17,9 +17,11 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(1);
-    	Robot.shooter.shoot();
-    	System.out.println("Shooting");
+    	this.setTimeout(.5);
+    	if (Robot.shooter.getAngle() >= 10) {
+    		Robot.shooter.shoot();
+        	System.out.println("Shooting");
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

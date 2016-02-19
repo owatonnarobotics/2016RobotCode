@@ -2,7 +2,7 @@ package org.usfirst.frc.team4624.autonomous;
 
 
 
-import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
+import org.usfirst.frc.team4624.robot.commands.Recharge;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -16,7 +16,7 @@ public class Autonomous extends CommandGroup {
      * Example auto period sequence
      */
     public Autonomous() {
-    	addSequential(new RechargeProcess());
+    	addSequential(new Recharge());
     	//addSequential(new VisionTesting());
         /*
         addSequential( new DriveToTote() );

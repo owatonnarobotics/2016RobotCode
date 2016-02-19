@@ -41,7 +41,7 @@ public class RobotMap {
     //world variable (2014)
     public static boolean hotGoal = false;
     
-    //public static final int compressorPin        = 1;
+    //public static final int compressorPin        = 0;
     
     
     

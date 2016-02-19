@@ -13,11 +13,17 @@ public class SwitchArmHeight extends Command {
     public SwitchArmHeight() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.grabberArm);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if (Robot.shooter.getAngle() >= 30){
     	Robot.grabberArm.switchArmHeight();
+    	}
+    	else if (Robot.shooter.getAngle() < 30 && Robot.grabberArm.shortSolGet() && !(Robot.grabberArm.longSolGet())) {
+    		Robot.grabberArm.switchArmHeight();
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -17,9 +17,11 @@ public class Recharge extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(10);
-    	Robot.shooter.reload();
-    	System.out.println("Recharging");
+    	this.setTimeout(1.5);
+    	if (Robot.shooter.getAngle() >= 10) {
+    		Robot.shooter.reload();
+    		System.out.println("Recharging");
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,10 +35,12 @@ public class Recharge extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.shooter.latchReady();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.shooter.latchReady();
     }
 }

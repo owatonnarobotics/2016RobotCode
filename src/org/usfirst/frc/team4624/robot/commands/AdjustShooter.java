@@ -19,6 +19,7 @@ public class AdjustShooter extends Command {
 	public AdjustShooter(double speed, int button) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.shooter);
+		requires(Robot.ballCollecter);
 		this.speed = speed;
 		this.button = button;
 	}
@@ -32,7 +33,7 @@ public class AdjustShooter extends Command {
 	protected void execute() {
 		double mySpeed = speed;
 		
-		if (Robot.shooter.getAngle() >= .75 && button == 1) {
+		if (Robot.shooter.getAngle() <= 0 && button == 1) {
 			speed = 0;
 			
 			System.out.println("Shooter can't go lower!");
@@ -40,8 +41,9 @@ public class AdjustShooter extends Command {
 			Robot.shooter.setRaw(speed);
 			OI.xboxController.setRumble(.5);
 			speed = mySpeed;
+			Robot.ballCollecter.turnOff();
 		}
-		else if (Robot.shooter.getAngle() <= .4 && button == 0) {
+		else if (Robot.shooter.getAngle() >= 31 && button == 0) {
 			speed = 0;
 			
 			System.out.println("Shooter can't go higher");
@@ -49,9 +51,17 @@ public class AdjustShooter extends Command {
 			Robot.shooter.setRaw(speed);
 			OI.xboxController.setRumble(.5);
 			speed = mySpeed;
+			Robot.ballCollecter.turnOff();
 		}
 		else {
-			Robot.shooter.setRaw(speed);
+			if (Robot.shooter.getAngle() <= 10 && button == 0) {
+				Robot.shooter.setRaw(speed);
+				Robot.ballCollecter.turnOn();
+			}
+			else {
+				Robot.shooter.setRaw(speed);
+				Robot.ballCollecter.turnOff();
+			}
 		}
 		
 		Robot.shooter.displayInformation();
@@ -66,6 +76,7 @@ public class AdjustShooter extends Command {
 	protected void end() {
 		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
+		Robot.ballCollecter.turnOff();
 	}
 
 	// Called when another command which requires one or more of the same
@@ -73,5 +84,6 @@ public class AdjustShooter extends Command {
 	protected void interrupted() {
 		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
+		Robot.ballCollecter.turnOff();
 	}
 }

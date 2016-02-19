@@ -44,5 +44,21 @@ public class GrabberArm extends Subsystem {
     	shortSolenoid.set(false);
     	longSolenoid.set(false);
     }
+    
+    /**
+     * returns the the short arm extension solenoid value
+     * @return true/false for the shortSolenoid
+     */
+    public boolean shortSolGet() {
+    	return shortSolenoid.get();
+    }
+    
+    /**
+     * returns the the long arm extension solenoid value
+     * @return true/false for the longSolenoid
+     */
+    public boolean longSolGet() {
+    	return longSolenoid.get();
+    }
 }
 

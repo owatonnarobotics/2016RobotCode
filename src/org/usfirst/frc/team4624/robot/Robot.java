@@ -8,13 +8,14 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4624.autonomous.Autonomous;
-import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
+import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;
 import org.usfirst.frc.team4624.robot.subsystems.DistanceReader;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.GrabberArm;
 import org.usfirst.frc.team4624.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -48,7 +49,7 @@ public class Robot extends IterativeRobot {
 	public static final GrabberArm      grabberArm      = new GrabberArm();
 
     Command autonomousCommand;
-    Command initChargeProcess;
+    Command initChargeShooter;
     //Command sensorHit;
     SendableChooser chooser;
     CameraServer camServer;
@@ -133,8 +134,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        initChargeProcess = new RechargeProcess();
-        if (initChargeProcess != null) initChargeProcess.start();
+        initChargeShooter = new Recharge();
+        if (initChargeShooter != null) initChargeShooter.start();
         
     }
 

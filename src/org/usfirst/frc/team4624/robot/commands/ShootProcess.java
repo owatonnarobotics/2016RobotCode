@@ -16,7 +16,6 @@ public class ShootProcess extends CommandGroup {
     public ShootProcess() {
     	addSequential(new Shoot()); //Shoots
     	addSequential(new Recharge());
-    	addSequential(new LatchReady());
         /*
         addSequential( new DriveToTote() );
         addSequential( new GrabTote() );
