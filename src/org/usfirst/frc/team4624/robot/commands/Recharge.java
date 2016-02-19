@@ -3,25 +3,25 @@ package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
-public class SensorHit extends Command {
-
-    public SensorHit() {
+public class Recharge extends Command {
+	
+	/**
+	 * recharges the shooting cylinder
+	 */
+    public Recharge() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
-    	this.setTimeout(.5);
-        OI.xboxController.setRumble(.5);
-        System.out.println("Sensor Initialized");
+    	this.setTimeout(1.5);
+    	if (Robot.shooter.getAngle() >= 10) {
+    		Robot.shooter.reload();
+    		System.out.println("Recharging");
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,11 +35,12 @@ public class SensorHit extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	OI.xboxController.setRumble(0);
+    	Robot.shooter.latchReady();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.shooter.latchReady();
     }
 }

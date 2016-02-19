@@ -8,29 +8,29 @@ import org.usfirst.frc.team4624.robot.Robot;
 /**
  *
  */
-public class ClockwiseTurn extends Command {
+public class DistanceGetter extends Command {
 	
 	/**
-	 * turns robot clockwise
+	 * gets the distance read by the ultrasonic sensor
 	 */
-    public ClockwiseTurn() {
+    public DistanceGetter() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
+        requires(Robot.distanceReader);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(.5);
-    	Robot.driveTrain.setDrive(0, 1.0);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.distanceReader.displayDistance();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return this.isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

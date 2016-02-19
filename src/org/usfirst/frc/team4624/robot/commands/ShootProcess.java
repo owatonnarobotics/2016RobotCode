@@ -1,23 +1,21 @@
-package org.usfirst.frc.team4624.autonomous;
+package org.usfirst.frc.team4624.robot.commands;
 
 
-
-import org.usfirst.frc.team4624.robot.commands.Recharge;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 
 
-public class Autonomous extends CommandGroup {
+public class ShootProcess extends CommandGroup {
     
     
     
     /**
-     * Example auto period sequence
+     * process the robot goes through to shoot and then reload
      */
-    public Autonomous() {
+    public ShootProcess() {
+    	addSequential(new Shoot()); //Shoots
     	addSequential(new Recharge());
-    	//addSequential(new VisionTesting());
         /*
         addSequential( new DriveToTote() );
         addSequential( new GrabTote() );

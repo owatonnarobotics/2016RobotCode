@@ -82,6 +82,7 @@ public class XboxController extends Joystick {
     public final    Button          rb;
     public final    Button          back;
     public final    Button          start;
+    public final    Button          rsButton;
     
     
     
@@ -111,6 +112,7 @@ public class XboxController extends Joystick {
         this.rb         = new JoystickButton(this.controller, RB_BUTTON_ID);
         this.back       = new JoystickButton(this.controller, BACK_BUTTON_ID);
         this.start      = new JoystickButton(this.controller, START_BUTTON_ID);
+        this.rsButton   = new JoystickButton(this.controller, RIGHT_THUMBSTICK_BUTTON_ID);
     }
     
     

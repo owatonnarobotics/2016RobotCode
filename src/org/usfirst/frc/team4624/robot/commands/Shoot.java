@@ -5,23 +5,23 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
-public class ClockwiseTurn extends Command {
+public class Shoot extends Command {
 	
 	/**
-	 * turns robot clockwise
+	 * shoots the cylinder
 	 */
-    public ClockwiseTurn() {
+    public Shoot() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveTrain);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(.5);
-    	Robot.driveTrain.setDrive(0, 1.0);
+    	if (Robot.shooter.getAngle() >= 10) {
+    		Robot.shooter.shoot();
+        	System.out.println("Shooting");
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,7 +30,7 @@ public class ClockwiseTurn extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return this.isTimedOut();
+        return this.isTimedOut();
     }
 
     // Called once after isFinished returns true
