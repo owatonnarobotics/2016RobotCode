@@ -8,27 +8,29 @@ import org.usfirst.frc.team4624.robot.Robot;
 /**
  *
  */
-public class LatchReady extends Command {
-
-    public LatchReady() {
+public class DistanceGetter extends Command {
+	
+	/**
+	 * gets the distance read by the ultrasonic sensor
+	 */
+    public DistanceGetter() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooterTilter);
+        requires(Robot.distanceReader);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(1);
-    	Robot.shooterTilter.latchReady();
-    	System.out.println("Latch is ready");
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.distanceReader.displayDistance();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return this.isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

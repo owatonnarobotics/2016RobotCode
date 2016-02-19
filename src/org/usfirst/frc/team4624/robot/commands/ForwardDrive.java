@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class ForwardDrive extends Command {
-
+	
+	/**
+	 * makes the robot drive forward
+	 */
     public ForwardDrive() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);

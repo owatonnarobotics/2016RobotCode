@@ -6,11 +6,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class RoboPause extends Command {
-
+	
+	/**
+	 * disables the robot
+	 */
     public RoboPause() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);

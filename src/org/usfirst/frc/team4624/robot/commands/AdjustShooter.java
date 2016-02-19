@@ -10,10 +10,16 @@ public class AdjustShooter extends Command {
 
 	double speed = 0;
 	int button = 0;
-
+	
+	/**
+	 * Command to adjust the shooter angle
+	 * @param speed the speed the shooter should move at from -1 to 1
+	 * @param button the button being used to control the angle (leftbutton = 0 and rightbutton = 1
+	 */
 	public AdjustShooter(double speed, int button) {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.shooterTilter);
+		requires(Robot.shooter);
+		requires(Robot.ballCollecter);
 		this.speed = speed;
 		this.button = button;
 	}
@@ -27,30 +33,38 @@ public class AdjustShooter extends Command {
 	protected void execute() {
 		double mySpeed = speed;
 		
-		if (Robot.shooterTilter.getEncoderSwitch(1) && button == 1) {
+		if (Robot.shooter.getAngle() <= 0 && button == 1) {
 			speed = 0;
 			
-			System.out.println("Shooter encoder is 0");
+			System.out.println("Shooter can't go lower!");
 			
-			Robot.shooterTilter.setRaw(speed);
-			Robot.shooterTilter.resetEncoder();
+			Robot.shooter.setRaw(speed);
 			OI.xboxController.setRumble(.5);
 			speed = mySpeed;
+			Robot.ballCollecter.turnOff();
 		}
-		else if (Robot.shooterTilter.getEncoderSwitch(2) && button == 0) {
+		else if (Robot.shooter.getAngle() >= 31 && button == 0) {
 			speed = 0;
 			
-			System.out.println("Shooter encoder is max");
+			System.out.println("Shooter can't go higher");
 			
-			Robot.shooterTilter.setRaw(speed);
+			Robot.shooter.setRaw(speed);
 			OI.xboxController.setRumble(.5);
 			speed = mySpeed;
+			Robot.ballCollecter.turnOff();
 		}
 		else {
-			Robot.shooterTilter.setRaw(speed);
+			if (Robot.shooter.getAngle() <= 10 && button == 0) {
+				Robot.shooter.setRaw(speed);
+				Robot.ballCollecter.turnOn();
+			}
+			else {
+				Robot.shooter.setRaw(speed);
+				Robot.ballCollecter.turnOff();
+			}
 		}
-		Robot.shooterTilter.displayInformation();
-
+		
+		Robot.shooter.displayInformation();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -60,14 +74,16 @@ public class AdjustShooter extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.shooterTilter.setRaw(0);
+		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
+		Robot.ballCollecter.turnOff();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.shooterTilter.setRaw(0);
+		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
+		Robot.ballCollecter.turnOff();
 	}
 }

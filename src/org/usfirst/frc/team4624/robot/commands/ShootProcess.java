@@ -11,12 +11,11 @@ public class ShootProcess extends CommandGroup {
     
     
     /**
-     * Example auto period sequence
+     * process the robot goes through to shoot and then reload
      */
     public ShootProcess() {
     	addSequential(new Shoot()); //Shoots
     	addSequential(new Recharge());
-    	addSequential(new LatchReady());
         /*
         addSequential( new DriveToTote() );
         addSequential( new GrabTote() );

@@ -5,21 +5,23 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4624.robot.Robot;
 
-/**
- *
- */
 public class Shoot extends Command {
-
+	
+	/**
+	 * shoots the cylinder
+	 */
     public Shoot() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooterTilter);
+        requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(1);
-    	Robot.shooterTilter.shoot();
-    	System.out.println("Shooting");
+    	this.setTimeout(.5);
+    	if (Robot.shooter.getAngle() >= 10) {
+    		Robot.shooter.shoot();
+        	System.out.println("Shooting");
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

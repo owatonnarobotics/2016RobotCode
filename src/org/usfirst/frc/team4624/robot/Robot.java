@@ -1,21 +1,21 @@
 
 package org.usfirst.frc.team4624.robot;
 
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team4624.autonomous.Autonomous;
-import org.usfirst.frc.team4624.autonomous.ZeroTilter;
-import org.usfirst.frc.team4624.robot.commands.LatchReady;
 import org.usfirst.frc.team4624.robot.commands.Recharge;
-import org.usfirst.frc.team4624.robot.commands.RechargeProcess;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;
+import org.usfirst.frc.team4624.robot.subsystems.DistanceReader;
 import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4624.robot.subsystems.ShooterTilter;
+import org.usfirst.frc.team4624.robot.subsystems.GrabberArm;
+import org.usfirst.frc.team4624.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -32,21 +32,27 @@ public class Robot extends IterativeRobot {
 	
 	public static OI oi;
 	
-	public static final DriveTrain     driveTrain     = new DriveTrain();
+	public static final DriveTrain      driveTrain     = new DriveTrain();
 	
-	public static final ShooterTilter  shooterTilter  = new ShooterTilter();
+	public static final Shooter         shooter        = new Shooter();
 	
-	public static final BallCollecter  ballCollecter  = new BallCollecter();
+	public static final BallCollecter   ballCollecter  = new BallCollecter();
 	
 	//public static final RoboCompressor roboCompressor = new RoboCompressor();
 	
-	public static final CamPanTilt     camPanTilt     = new CamPanTilt();
+	public static final CamPanTilt      camPanTilt     = new CamPanTilt();
+	
+	//public static final CameraDetection camera         = new CameraDetection();
+	
+	public static final DistanceReader  distanceReader = new DistanceReader();
+	
+	public static final GrabberArm      grabberArm      = new GrabberArm();
 
     Command autonomousCommand;
-    Command initChargeProcess;
+    Command initChargeShooter;
     //Command sensorHit;
     SendableChooser chooser;
-    
+    CameraServer camServer;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -55,13 +61,20 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	
     	oi = new OI();
-    	//roboCompressor.compressorStart();
     	
-		//sensorHit = new SensorHit();
+    	grabberArm.resetArmHeight();
+    	
         chooser = new SendableChooser();
         //chooser.addDefault("Default Auto", new ExampleCommand());
         //chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+        //TODO: Move into subsystem later //comment in if you want to use the camera normally
+//        camServer = CameraServer.getInstance();
+//        camServer.setQuality(10);
+//        camServer.startAutomaticCapture("cam2");
+        //////////////////////////////////
+        
     }
 	
 	/**
@@ -70,7 +83,9 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
      */
     public void disabledInit(){
-    	
+    	driveTrain.stop();
+    	grabberArm.resetArmHeight();
+    	ballCollecter.turnOff();
     }
 	
 	public void disabledPeriodic() {
@@ -89,6 +104,7 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         //autonomousCommand = (Command) chooser.getSelected();
     	autonomousCommand = new Autonomous();
+        grabberArm.resetArmHeight();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
@@ -118,8 +134,8 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        initChargeProcess = new RechargeProcess();
-        if (initChargeProcess != null) initChargeProcess.start();
+        initChargeShooter = new Recharge();
+        if (initChargeShooter != null) initChargeShooter.start();
         
     }
 
