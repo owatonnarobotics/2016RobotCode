@@ -3,7 +3,9 @@ package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
+import org.usfirst.frc.team4624.robot.library.Tools;
 
 public class Drive extends Command {
 	
@@ -22,7 +24,12 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.setDrive(Robot.oi.xboxController.getRawAxis(1), Robot.oi.xboxController.getRawAxis(0));
+    	if (!(OI.xboxController.lsButton.get())) {
+    		Robot.driveTrain.setDrive(Tools.clamp(Robot.oi.xboxController.getRawAxis(1), -.93, .93), Tools.clamp(Robot.oi.xboxController.getRawAxis(0), -.93, .93));
+    	}
+    	else {
+    		Robot.driveTrain.setDrive(Robot.oi.xboxController.getRawAxis(1), Robot.oi.xboxController.getRawAxis(0));
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

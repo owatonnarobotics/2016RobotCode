@@ -1,13 +1,13 @@
 package org.usfirst.frc.team4624.robot;
 
+import org.usfirst.frc.team4624.autonomous.AutoClockwiseTurn;
+import org.usfirst.frc.team4624.autonomous.AutoCounterClockwiseTurn;
+import org.usfirst.frc.team4624.autonomous.AutoDriveForward;
+import org.usfirst.frc.team4624.autonomous.AutoDriveReverse;
 import org.usfirst.frc.team4624.robot.commands.AdjustShooter;
 import org.usfirst.frc.team4624.robot.commands.CamCommand;
-import org.usfirst.frc.team4624.robot.commands.ClockwiseTurn;
 import org.usfirst.frc.team4624.robot.commands.CollectBall;
-import org.usfirst.frc.team4624.robot.commands.CounterClockwiseTurn;
-import org.usfirst.frc.team4624.robot.commands.ForwardDrive;
 import org.usfirst.frc.team4624.robot.commands.SwitchArmHeight;
-import org.usfirst.frc.team4624.robot.commands.ReverseDrive;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
 import org.usfirst.frc.team4624.robot.commands.ShootProcess;
 import org.usfirst.frc.team4624.robot.library.XboxController;
@@ -18,14 +18,6 @@ import org.usfirst.frc.team4624.robot.library.XboxController;
  */
 public class OI {
 	
-	//public static XboxController xboxController = new XboxController();
-	
-    //// CREATING BUTTONS
-    // One type of button is a joystick button which is any button on a joystick.
-    // You create one by telling it which joystick it's on and which button
-    // number it is.
-	
-    //public Joystick stick = new Joystick(0);
     public static XboxController xboxController = new XboxController();
     
     public OI() {
@@ -34,17 +26,13 @@ public class OI {
     	xboxController.b.whileHeld(new CollectBall());
     	xboxController.x.whenPressed(new SwitchArmHeight());
     	
-    	xboxController.rb.whileHeld(new AdjustShooter(1, 1));  //down
-    	xboxController.lb.whileHeld(new AdjustShooter(-1, 0)); //up
     	
-    	xboxController.rsButton.whileHeld(new CamCommand(true));
+    	
+    	xboxController.rb.whileHeld(new AdjustShooter(-.2, 0)); //up
+    	xboxController.lb.whileHeld(new AdjustShooter(.2, 1)); //down
+    	
+    	//xboxController.rsButton.whileHeld(new CamCommand(true));
     	//xboxController.rtButton.whenReleased(new CamCommand(false));
-    	
-    	
-    	xboxController.dPad.down.whenPressed(new ReverseDrive());
-    	xboxController.dPad.left.whenPressed(new CounterClockwiseTurn());
-    	xboxController.dPad.right.whenPressed(new ClockwiseTurn());
-    	xboxController.dPad.up.whenPressed(new ForwardDrive());
     	
     	xboxController.start.toggleWhenPressed(new RoboPause());
     	

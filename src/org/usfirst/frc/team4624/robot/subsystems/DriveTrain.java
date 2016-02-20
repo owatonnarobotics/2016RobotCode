@@ -29,9 +29,12 @@ public class DriveTrain extends Subsystem {
 	 * @param y rotation speed value
 	 */
 	public void setDrive(double x, double y) {
-		driveTrain.arcadeDrive(-x, -y, true);
+		driveTrain.arcadeDrive(-(Math.pow(x, 3)), -(Math.pow(y, 3)), false);
 	}
 	
+	/**
+	 * stops the drivetrain
+	 */
 	public void stop() {
 		driveTrain.stopMotor();
 	}

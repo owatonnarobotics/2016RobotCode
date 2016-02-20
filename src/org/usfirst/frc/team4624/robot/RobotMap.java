@@ -11,26 +11,24 @@ public class RobotMap {
     // following variables to use with your drivetrain subsystem.
 	
     //PWM
-	public static final int leftMotor            = 0; //DriveTrain:    PWM: Motor Controller for the left side (drive) of the Robot
-    public static final int rightMotor           = 1; //DriveTrain:    PWM: Motor Controller for the right side (drive) of the Robot
-    public static final int tilterJag            = 2; //ShooterTilter: PWM: Motor Controller for tilting the shooter
-    //public static final int ballCollectJag       = 3; //BallCollecter: PWM: Motor Controller for the motor that controls the ball collecter
-    public static final int panCamServo          = 4; //CamPanTilt:    PWM: Servo that pans the camera on the robot
-    public static final int tiltCamServo         = 5; //CamPanTilt:    PWM: Servo that tilts the camera on the robot
+	public static final int leftMotor           = 0; //DriveTrain:    PWM: Motor Controller for the left side (drive) of the Robot
+    public static final int rightMotor          = 1; //DriveTrain:    PWM: Motor Controller for the right side (drive) of the Robot
+    public static final int tilterJag           = 2; //ShooterTilter: PWM: Motor Controller for tilting the shooter
+    //public static final int ballCollectJag      = 3; //BallCollecter: PWM: Motor Controller for the motor that controls the ball collecter
+    public static final int panCamServo         = 4; //CamPanTilt:    PWM: Servo that pans the camera on the robot
+    public static final int tiltCamServo        = 5; //CamPanTilt:    PWM: Servo that tilts the camera on the robot
     
     //DIO
-    public static final int encoderA             = 0; //ShooterTilter  DIO: Encoder that measures rota
-    public static final int encoderB             = 1;
-    public static final int encoderResetSwitch   = 2;
-    public static final int encoderLimitSwitch   = 3;
-    public static final int ECHO_CHANNEL         = 4;               // {UltraRange Finder} The echo channel for the ultrasonic rangefinder
-    public static final int PING_CHANNEL         = 5;               // [Not Used]
+    public static final int lowerShooterSwitch  = 0;
+    public static final int upperShooterSwitch  = 1;
+    public static final int ECHO_CHANNEL        = 2; // {UltraRange Finder} The echo channel for the ultrasonic rangefinder
+    public static final int PING_CHANNEL        = 3; // [Not Used]
     
     //PCM
     public static final int escapementSolenoid   = 0;
     public static final int cylinderSolenoid     = 1;
-    public static final int grabberSolenoidLong  = 2;
-    public static final int grabberSolenoidShort = 3;
+    public static final int grabberSolenoidShort = 2;
+    public static final int grabberSolenoidLong  = 3;
     
     //RELAY
     public static final int flywheel             = 0;

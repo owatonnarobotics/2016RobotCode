@@ -19,7 +19,7 @@ public class CamPanTilt extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new CamCommand(false));
+        setDefaultCommand(new CamCommand());
     }
     
     /**
@@ -37,7 +37,7 @@ public class CamPanTilt extends Subsystem {
      * @return the pan position value
      */
     public double getPan() {
-    	return pan.getRaw();
+    	return pan.getPosition();
     }
     
     /**
@@ -45,7 +45,7 @@ public class CamPanTilt extends Subsystem {
      * @return the tilt position value
      */
     public double getTilt() {
-    	return tilt.getRaw();
+    	return tilt.getPosition();
     }
     
     /**

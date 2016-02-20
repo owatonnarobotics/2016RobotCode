@@ -60,5 +60,20 @@ public class GrabberArm extends Subsystem {
     public boolean longSolGet() {
     	return longSolenoid.get();
     }
+
+	public void setArmHeight(int h) {
+		if (h == 0) {
+			shortSolenoid.set(false);
+			longSolenoid.set(false);
+		}
+		else if (h == 1) {
+			shortSolenoid.set(true);
+			longSolenoid.set(false);
+		}
+		else if (h == 2) {
+			shortSolenoid.set(true);
+			longSolenoid.set(true);
+		}
+	}
 }
 

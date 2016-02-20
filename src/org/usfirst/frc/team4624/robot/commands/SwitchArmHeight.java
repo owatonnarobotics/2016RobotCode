@@ -18,11 +18,14 @@ public class SwitchArmHeight extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (Robot.shooter.getAngle() >= 30){
+    	if (Robot.shooter.getAngle() >= 38){
     	Robot.grabberArm.switchArmHeight();
     	}
-    	else if (Robot.shooter.getAngle() < 30 && Robot.grabberArm.shortSolGet() && !(Robot.grabberArm.longSolGet())) {
+    	else if (Robot.shooter.getAngle() < 38 && Robot.grabberArm.shortSolGet() && !(Robot.grabberArm.longSolGet())) {
     		Robot.grabberArm.switchArmHeight();
+    	}
+    	else if (Robot.shooter.getAngle() < 38 && Robot.grabberArm.shortSolGet() && Robot.grabberArm.longSolGet()) {
+    		Robot.grabberArm.setArmHeight(1);
     	}
     }
 

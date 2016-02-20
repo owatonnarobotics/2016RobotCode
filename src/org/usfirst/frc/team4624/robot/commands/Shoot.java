@@ -18,7 +18,7 @@ public class Shoot extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	this.setTimeout(.5);
-    	if (Robot.shooter.getAngle() >= 10) {
+    	if (Robot.shooter.getAngle() >= 16) {
     		Robot.shooter.shoot();
         	System.out.println("Shooting");
     	}

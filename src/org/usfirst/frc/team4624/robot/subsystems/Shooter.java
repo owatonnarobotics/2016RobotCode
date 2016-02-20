@@ -14,10 +14,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends Subsystem {
 	
-	private Jaguar			    lift			= new Jaguar(RobotMap.tilterJag);
-	private Solenoid            escSolenoid     = new Solenoid(RobotMap.escapementSolenoid);
-	private Solenoid            cylSolenoid     = new Solenoid(RobotMap.cylinderSolenoid);
-	private AnalogPotentiometer potSensor       = new AnalogPotentiometer(RobotMap.potentiometer, 90, 26);
+	private Jaguar			    lift             = new Jaguar(RobotMap.tilterJag);
+	private Solenoid            escSolenoid      = new Solenoid(RobotMap.escapementSolenoid);
+	private Solenoid            cylSolenoid      = new Solenoid(RobotMap.cylinderSolenoid);
+	private AnalogPotentiometer potSensor        = new AnalogPotentiometer(RobotMap.potentiometer, 90, -11.9);
+	private DigitalInput        lowerLimitSwitch = new DigitalInput(RobotMap.lowerShooterSwitch);
+	private DigitalInput        upperLimitSwitch = new DigitalInput(RobotMap.upperShooterSwitch);
 	
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -27,8 +29,8 @@ public class Shooter extends Subsystem {
 	}
 	
 	/**
-	 * sets the speed of the shooter tilting(between -1 and 1)
-	 * @param raw speed of the shooter tilter between -1 and 1
+	 * sets the speed of the shooter tilting (between -1 and 1)
+	 * @param raw speed of the shooter tilter between -1 and 1 (-1 is up and 1 is down)
 	 */
 	public void setRaw(double raw) {
 		lift.set(raw);
@@ -46,7 +48,23 @@ public class Shooter extends Subsystem {
 	 * @return returns the angle of the shooter mechanism
 	 */
 	public double getAngle() {
-		return (90 - potSensor.get());
+		return potSensor.get();
+	}
+	
+	/**
+	 * tells if the shooter is all the way down
+	 * @return boolean for if the hardware lower limit is triggered
+	 */
+	public boolean isMinAngle() {
+		return !(lowerLimitSwitch.get());
+	}
+	
+	/**
+	 * tells if the shooter is all the way up
+	 * @return boolean for if the hardware upper limit is triggered
+	 */
+	public boolean isMaxAngle() {
+		return !(upperLimitSwitch.get());
 	}
 	
 	/**

@@ -11,19 +11,17 @@ import org.usfirst.frc.team4624.robot.library.Tools;
  */
 public class CamCommand extends Command {
 	
-	double p = .4;
+	double p = .49;
 	double t = .4;
 	private final double sensitivity = 100.0;
-	boolean rsPressed = false;
 	
 	/**
 	 * command to move the camera
 	 * @param rs boolean to see if the rightstick is pressed
 	 */
-    public CamCommand(boolean rs) {
+    public CamCommand() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.camPanTilt);
-        rsPressed = rs;
     }
 
     // Called just before this Command runs the first time
@@ -35,8 +33,8 @@ public class CamCommand extends Command {
     protected void execute() {
     	
     	
-    	if (rsPressed) {
-    		p = 0.4;
+    	if (OI.xboxController.rsButton.get()) {
+    		p = 0.49;
     		t = 0.4;
     	}else {
     		p +=   OI.xboxController.rightStick.getX()  / sensitivity; //sets the pan value for the camera
@@ -57,12 +55,14 @@ public class CamCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	p = .49;
+    	t = .4;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	p = .4;
+    	p = .49;
     	t = .4;
     }
 }

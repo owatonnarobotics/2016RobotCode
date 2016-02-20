@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4624.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
@@ -33,7 +34,7 @@ public class AdjustShooter extends Command {
 	protected void execute() {
 		double mySpeed = speed;
 		
-		if (Robot.shooter.getAngle() <= 0 && button == 1) {
+		if (((Robot.shooter.getAngle() <= 0) || Robot.shooter.isMinAngle()) && button == 0) {
 			speed = 0;
 			
 			System.out.println("Shooter can't go lower!");
@@ -43,7 +44,7 @@ public class AdjustShooter extends Command {
 			speed = mySpeed;
 			Robot.ballCollecter.turnOff();
 		}
-		else if (Robot.shooter.getAngle() >= 31 && button == 0) {
+		else if (((Robot.shooter.getAngle() >= 60) || Robot.shooter.isMaxAngle()) && button == 1) {
 			speed = 0;
 			
 			System.out.println("Shooter can't go higher");
@@ -54,7 +55,7 @@ public class AdjustShooter extends Command {
 			Robot.ballCollecter.turnOff();
 		}
 		else {
-			if (Robot.shooter.getAngle() <= 10 && button == 0) {
+			if (Robot.shooter.getAngle() <= 16 && button == 1) {
 				Robot.shooter.setRaw(speed);
 				Robot.ballCollecter.turnOn();
 			}
@@ -65,6 +66,8 @@ public class AdjustShooter extends Command {
 		}
 		
 		Robot.shooter.displayInformation();
+		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
+		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -77,6 +80,9 @@ public class AdjustShooter extends Command {
 		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
 		Robot.ballCollecter.turnOff();
+		Robot.shooter.displayInformation();
+		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
+		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
 	}
 
 	// Called when another command which requires one or more of the same
@@ -85,5 +91,8 @@ public class AdjustShooter extends Command {
 		Robot.shooter.setRaw(0);
 		OI.xboxController.setRumble(0);
 		Robot.ballCollecter.turnOff();
+		Robot.shooter.displayInformation();
+		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
+		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
 	}
 }

@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4624.autonomous.AutoOpenGate;
 import org.usfirst.frc.team4624.autonomous.Autonomous;
 import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
@@ -103,8 +104,8 @@ public class Robot extends IterativeRobot {
 	 */
     public void autonomousInit() {
         //autonomousCommand = (Command) chooser.getSelected();
-    	autonomousCommand = new Autonomous();
-        grabberArm.resetArmHeight();
+    	grabberArm.resetArmHeight();
+    	autonomousCommand = new AutoOpenGate();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {

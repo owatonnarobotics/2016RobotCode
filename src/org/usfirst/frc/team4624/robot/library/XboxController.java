@@ -54,7 +54,7 @@ public class XboxController extends Joystick {
     private static final int    RB_BUTTON_ID               = 6;
     private static final int    BACK_BUTTON_ID             = 7;
     private static final int    START_BUTTON_ID            = 8;
-    private static final int    LEFT_THUMBSTIKC_BUTTON_ID  = 9;
+    private static final int    LEFT_THUMBSTICK_BUTTON_ID  = 9;
     private static final int    RIGHT_THUMBSTICK_BUTTON_ID = 10;
     
     /* Axis Mappings */
@@ -83,6 +83,7 @@ public class XboxController extends Joystick {
     public final    Button          back;
     public final    Button          start;
     public final    Button          rsButton;
+    public final    Button          lsButton;
     
     
     
@@ -113,6 +114,7 @@ public class XboxController extends Joystick {
         this.back       = new JoystickButton(this.controller, BACK_BUTTON_ID);
         this.start      = new JoystickButton(this.controller, START_BUTTON_ID);
         this.rsButton   = new JoystickButton(this.controller, RIGHT_THUMBSTICK_BUTTON_ID);
+        this.lsButton   = new JoystickButton(this.controller, LEFT_THUMBSTICK_BUTTON_ID);
     }
     
     
@@ -223,7 +225,7 @@ public class XboxController extends Joystick {
             if (hand == HAND.LEFT) {
                 this.xAxisID    = LEFT_THUMBSTICK_X_AXIS_ID;
                 this.yAxisID    = LEFT_THUMBSTICK_Y_AXIS_ID;
-                this.pressedID	= LEFT_THUMBSTIKC_BUTTON_ID;
+                this.pressedID	= LEFT_THUMBSTICK_BUTTON_ID;
             } else {                                            // If right hand
                 this.xAxisID    = RIGHT_THUMBSTICK_X_AXIS_ID;
                 this.yAxisID    = RIGHT_THUMBSTICK_Y_AXIS_ID;
