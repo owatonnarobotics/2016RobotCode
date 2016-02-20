@@ -11,7 +11,7 @@ import org.usfirst.frc.team4624.robot.library.Tools;
  */
 public class CamCommand extends Command {
 	
-	double p = .4;
+	double p = .49;
 	double t = .4;
 	private final double sensitivity = 100.0;
 	boolean rsPressed = false;
@@ -36,7 +36,7 @@ public class CamCommand extends Command {
     	
     	
     	if (rsPressed) {
-    		p = 0.4;
+    		p = 0.49;
     		t = 0.4;
     	}else {
     		p +=   OI.xboxController.rightStick.getX()  / sensitivity; //sets the pan value for the camera
@@ -62,7 +62,7 @@ public class CamCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	p = .4;
+    	p = .49;
     	t = .4;
     }
 }
