@@ -27,7 +27,9 @@ public class GrabberArm extends Subsystem {
     public void switchArmHeight() {
     	if (!shortSolenoid.get() && !longSolenoid.get()) {
     		shortSolenoid.set(true);
+    		longSolenoid.set(false);
     	} else if (shortSolenoid.get() && !longSolenoid.get()) {
+    		shortSolenoid.set(true);
     		longSolenoid.set(true);
     	} else if (shortSolenoid.get() && longSolenoid.get()) {
     		shortSolenoid.set(false);
@@ -41,8 +43,27 @@ public class GrabberArm extends Subsystem {
      * in the position it left off in
      */
     public void resetArmHeight() {
-    	shortSolenoid.set(false);
     	longSolenoid.set(false);
+    	shortSolenoid.set(false);
+    }
+    
+    /**
+     * sets the arm height manually
+     * @param h int for arm height (0 = down, 1 = mid, 2 = high)
+     */
+    public void setArmHeight(int h) {
+    	if (h == 0) {
+    		shortSolenoid.set(false);
+    		longSolenoid.set(false);
+    	}
+    	else if (h == 1) {
+    		shortSolenoid.set(true);
+    		longSolenoid.set(false);
+    	}
+    	else if (h == 2) {
+    		shortSolenoid.set(true);
+    		longSolenoid.set(true);
+    	}
     }
     
     /**
