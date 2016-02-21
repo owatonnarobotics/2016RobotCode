@@ -15,6 +15,7 @@ public class AutoDriveOverStuff extends CommandGroup {
      */
     public AutoDriveOverStuff() {
     	addSequential(new AutonomousInit());
+    	addSequential(new AutoAdjustShooter(15));
     	addSequential(new AutoDrive(-.5, 0, 7, 0));
     
         /*

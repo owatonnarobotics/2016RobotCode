@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousInit extends CommandGroup {
 	
     public AutonomousInit() {
-    	addSequential(new AutoResetArmHeight());
-    	pause(3);
     	addSequential(new AutoAdjustShooter(10));
     	addSequential(new Recharge());
     	
