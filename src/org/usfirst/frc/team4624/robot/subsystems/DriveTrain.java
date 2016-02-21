@@ -1,12 +1,11 @@
 
 package org.usfirst.frc.team4624.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-
 import org.usfirst.frc.team4624.robot.RobotMap;
 import org.usfirst.frc.team4624.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *

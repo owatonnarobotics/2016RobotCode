@@ -1,11 +1,10 @@
 
 package org.usfirst.frc.team4624.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 public class AdjustShooter extends Command {
 
@@ -66,8 +65,7 @@ public class AdjustShooter extends Command {
 		}
 		
 		Robot.shooter.displayInformation();
-		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
-		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
+
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -81,8 +79,6 @@ public class AdjustShooter extends Command {
 		OI.xboxController.setRumble(0);
 		Robot.ballCollecter.turnOff();
 		Robot.shooter.displayInformation();
-		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
-		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
 	}
 
 	// Called when another command which requires one or more of the same
@@ -92,7 +88,5 @@ public class AdjustShooter extends Command {
 		OI.xboxController.setRumble(0);
 		Robot.ballCollecter.turnOff();
 		Robot.shooter.displayInformation();
-		SmartDashboard.putBoolean("Low Switch", Robot.shooter.isMinAngle());
-		SmartDashboard.putBoolean("High Switch", Robot.shooter.isMaxAngle());
 	}
 }

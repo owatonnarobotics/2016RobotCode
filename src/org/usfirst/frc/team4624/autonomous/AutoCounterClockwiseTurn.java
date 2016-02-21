@@ -1,9 +1,9 @@
 
 package org.usfirst.frc.team4624.autonomous;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4624.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 public class AutoCounterClockwiseTurn extends Command {
 	double time;

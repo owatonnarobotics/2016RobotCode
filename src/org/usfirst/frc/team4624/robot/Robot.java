@@ -1,14 +1,10 @@
 
 package org.usfirst.frc.team4624.robot;
 
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-import org.usfirst.frc.team4624.autonomous.AutoOpenGate;
-import org.usfirst.frc.team4624.autonomous.Autonomous;
+import org.usfirst.frc.team4624.autonomous.AutoDriveOverStuff;
+import org.usfirst.frc.team4624.autonomous.AutoOpenDrawbridge;
+import org.usfirst.frc.team4624.autonomous.AutoOpenPorticullis;
+import org.usfirst.frc.team4624.autonomous.AutonomousInit;
 import org.usfirst.frc.team4624.robot.commands.Recharge;
 import org.usfirst.frc.team4624.robot.subsystems.BallCollecter;
 import org.usfirst.frc.team4624.robot.subsystems.CamPanTilt;
@@ -17,6 +13,11 @@ import org.usfirst.frc.team4624.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4624.robot.subsystems.GrabberArm;
 import org.usfirst.frc.team4624.robot.subsystems.Shooter;
 
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -52,7 +53,7 @@ public class Robot extends IterativeRobot {
     Command autonomousCommand;
     Command initChargeShooter;
     //Command sensorHit;
-    SendableChooser chooser;
+    SendableChooser whatToDo;
     CameraServer camServer;
 
     /**
@@ -65,10 +66,12 @@ public class Robot extends IterativeRobot {
     	
     	grabberArm.resetArmHeight();
     	
-        chooser = new SendableChooser();
-        //chooser.addDefault("Default Auto", new ExampleCommand());
-        //chooser.addObject("My Auto", new MyAutoCommand());
-        SmartDashboard.putData("Auto mode", chooser);
+    	whatToDo = new SendableChooser();
+    	whatToDo.addDefault("Just Sit There", new AutonomousInit());
+    	whatToDo.addObject("Open Porticullis", new AutoOpenPorticullis());
+    	whatToDo.addObject("Drive Over Stuff", new AutoDriveOverStuff());
+    	whatToDo.addObject("Open Drawbridge", new AutoOpenDrawbridge());
+        SmartDashboard.putData("Auto mode (choose one)", whatToDo);
         
         //TODO: Move into subsystem later //comment in if you want to use the camera normally
 //        camServer = CameraServer.getInstance();
@@ -103,9 +106,9 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        //autonomousCommand = (Command) chooser.getSelected();
-    	grabberArm.resetArmHeight();
-    	autonomousCommand = new AutoOpenGate();
+        autonomousCommand = (Command) whatToDo.getSelected();
+        
+    	//autonomousCommand = new AutonomousInit();
         
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {

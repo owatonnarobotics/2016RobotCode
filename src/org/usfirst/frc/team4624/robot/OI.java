@@ -1,15 +1,10 @@
 package org.usfirst.frc.team4624.robot;
 
-import org.usfirst.frc.team4624.autonomous.AutoClockwiseTurn;
-import org.usfirst.frc.team4624.autonomous.AutoCounterClockwiseTurn;
-import org.usfirst.frc.team4624.autonomous.AutoDriveForward;
-import org.usfirst.frc.team4624.autonomous.AutoDriveReverse;
 import org.usfirst.frc.team4624.robot.commands.AdjustShooter;
-import org.usfirst.frc.team4624.robot.commands.CamCommand;
 import org.usfirst.frc.team4624.robot.commands.CollectBall;
-import org.usfirst.frc.team4624.robot.commands.SwitchArmHeight;
 import org.usfirst.frc.team4624.robot.commands.RoboPause;
 import org.usfirst.frc.team4624.robot.commands.ShootProcess;
+import org.usfirst.frc.team4624.robot.commands.SwitchArmHeight;
 import org.usfirst.frc.team4624.robot.library.XboxController;
 
 /**
@@ -25,8 +20,6 @@ public class OI {
     	xboxController.a.whenPressed(new ShootProcess());
     	xboxController.b.whileHeld(new CollectBall());
     	xboxController.x.whenPressed(new SwitchArmHeight());
-    	
-    	
     	
     	xboxController.rb.whileHeld(new AdjustShooter(-.2, 0)); //up
     	xboxController.lb.whileHeld(new AdjustShooter(.2, 1)); //down

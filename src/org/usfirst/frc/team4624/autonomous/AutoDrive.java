@@ -1,25 +1,38 @@
 
 package org.usfirst.frc.team4624.autonomous;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4624.robot.Robot;
 
-public class AutoDriveForward extends Command {
+import edu.wpi.first.wpilibj.command.Command;
+
+public class AutoDrive extends Command {
+	double xSpeed;
+	double ySpeed;
 	double time;
+	double distance;
+	
 	/**
-	 * makes the robot drive forward
+	 * makes the robot drive in autonomous with the specified values given
+	 * @param x x speed
+	 * @param y y speed
+	 * @param t duration for command to run (seconds)
+	 * @param d distance to reach (when driving forwards only) if time entered is 0
 	 */
-    public AutoDriveForward(double t) {
+    public AutoDrive(double x, double y, double t, double d) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.driveTrain);
+        this.xSpeed = x;
+        this.ySpeed = y;
         this.time = t;
+        this.distance = d;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.setTimeout(time);
-    	Robot.driveTrain.setDrive(-0.75, 0);
+    	if (!(time == 0)) {
+        	this.setTimeout(time);
+        }
+    	Robot.driveTrain.setDrive(xSpeed, ySpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,7 +41,12 @@ public class AutoDriveForward extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return this.isTimedOut();
+        if (!(time == 0)) {
+        	return this.isTimedOut();
+        }
+        else {
+        	return (Robot.distanceReader.getDistance() <= distance);
+        }
     }
 
     // Called once after isFinished returns true

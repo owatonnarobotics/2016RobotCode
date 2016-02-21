@@ -1,10 +1,9 @@
 
 package org.usfirst.frc.team4624.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-
 import org.usfirst.frc.team4624.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 public class RoboPause extends Command {
 	

@@ -24,7 +24,11 @@ public class SwitchArmHeight extends Command {
     	else if (Robot.shooter.getAngle() < 38 && Robot.grabberArm.shortSolGet() && !(Robot.grabberArm.longSolGet())) {
     		Robot.grabberArm.switchArmHeight();
     	}
+<<<<<<< HEAD
     	else if (Robot.shooter.getAngle() < 38 && Robot.grabberArm.shortSolGet() && Robot.grabberArm.longSolGet()) {
+=======
+    	else if (Robot.shooter.getAngle() < 30 && Robot.grabberArm.shortSolGet() && Robot.grabberArm.longSolGet()){
+>>>>>>> origin/vision-alpha
     		Robot.grabberArm.setArmHeight(1);
     	}
     }

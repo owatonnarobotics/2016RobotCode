@@ -1,12 +1,12 @@
 
 package org.usfirst.frc.team4624.robot.subsystems;
 
+import org.usfirst.frc.team4624.robot.RobotMap;
+import org.usfirst.frc.team4624.robot.commands.DistanceGetter;
+
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team4624.robot.RobotMap;
-import org.usfirst.frc.team4624.robot.commands.DistanceGetter;
 
 /**
  *
@@ -47,20 +47,11 @@ public class DistanceReader extends Subsystem{
     }
     
     /**
-     * displays distance on Smart dashboard
+     * displays distance on SmartDashboard
      */
     public void displayDistance() {
     	double distance = this.getDistance();
     	SmartDashboard.putNumber("UltraS. Dist.", distance);
-    }
-    
-    /**
-     * checks if the robot is in range of a certain distance
-     * @return boolean for if the robot is in range
-     */
-    public boolean inRange(){
-        double distance = this.getDistance();
-        return minRange < distance && distance < maxRange;
     }
 }
 

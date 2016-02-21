@@ -1,10 +1,11 @@
 
 package org.usfirst.frc.team4624.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4624.robot.OI;
 import org.usfirst.frc.team4624.robot.Robot;
 import org.usfirst.frc.team4624.robot.library.Tools;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -32,11 +33,11 @@ public class CamCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	
     	if (OI.xboxController.rsButton.get()) {
     		p = 0.49;
     		t = 0.4;
-    	}else {
+    	}
+    	else {
     		p +=   OI.xboxController.rightStick.getX()  / sensitivity; //sets the pan value for the camera
         	t += (-OI.xboxController.rightStick.getY()) / sensitivity; //sets the tilt value for the camera
         	

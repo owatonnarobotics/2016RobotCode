@@ -9,20 +9,21 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 
 
-public class AutoOpenGate extends CommandGroup {
+public class AutoOpenPorticullis extends CommandGroup {
     
     
     
     /**
      * Example auto period sequence
      */
-    public AutoOpenGate() {
-    	addSequential(new AutoDriveForward(1));
+    public AutoOpenPorticullis() {
+    	addSequential(new AutonomousInit());
     	addSequential(new AutoAdjustShooter(38));
     	addSequential(new SwitchArmHeight());
-    	pause(2.5);
+    	pause(2.75);
+    	addSequential(new AutoDrive(-.75, 0, 1, 0));
     	addSequential(new AutoAdjustShooter(24));
-    	addSequential(new AutoDriveForward(1));
+    	addSequential(new AutoDrive(-.75, 0, 1, 0));
     	addSequential(new SwitchArmHeight());
     	
         /*
